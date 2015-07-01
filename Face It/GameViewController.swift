@@ -16,7 +16,6 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
     var spheres:Array<SCNNode>!
     var count: Double!
     var maxCount: Double!
-    var box: SCNNode!
 
     
     override func viewDidLoad() {
@@ -27,13 +26,12 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
         // set the scene to the view
         self.scnView = self.view as! SCNView
         self.scnView.scene = self.scn
-        self.scnView.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 250/255, alpha: 1.0)
+        self.scnView.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 247/255, alpha: 1.0)
         self.scnView.antialiasingMode = SCNAntialiasingMode.Multisampling4X
         self.scnView.delegate = self
         self.spheres = []
-        self.count = 0.0
-        self.maxCount = 20.0
-        self.box = self.scn.rootNode.childNodeWithName("box", recursively: true)
+        self.count = 80.0
+        self.maxCount = 80.0
 
         // configure the vie
         // add a tap gesture recognizer
@@ -55,27 +53,19 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
     }
     
     
-    func renderer(aRenderer: SCNSceneRenderer, updateAtTime time: NSTimeInterval) {
-        print("octave est un gros pede")
+    func renderer(renderer: SCNSceneRenderer, updateAtTime time: NSTimeInterval) {
         self.maxCount = self.maxCount - 0.01
         self.count = self.count + 1
 
-        let colors = [UIColor(red: 250/255, green: 1, blue: 153/255, alpha: 1.0),UIColor(red: 174/255, green: 34/255, blue: 34/255, alpha: 1.0),UIColor(red: 92/255, green: 157/255, blue: 160/255, alpha: 1.0)]
+        let colors = [UIColor(red: 250/255, green: 1, blue: 153/255, alpha: 0.9),UIColor(red: 174/255, green: 34/255, blue: 34/255, alpha: 0.9),UIColor(red: 92/255, green: 157/255, blue: 160/255, alpha: 0.9)]
         var position = [Float(0),Float(0),Float(0)]
         position[Int(arc4random_uniform(3))] = Float(10)
         if(self.count>=self.maxCount){
-            print("ocatave le pede")
             self.addSphere(colors[Int(arc4random_uniform(3))], x: position[0], y: position[1], z: position[2])
             self.count = 0
         }
         
-        for (var i = self.spheres.endIndex-1 ; i>0; i-- ){
-            var position = self.spheres[i].position
-            if(position.x + position.y + position.z == 10){
-                self.spheres[i].removeFromParentNode()
-                self.spheres.removeAtIndex(i)
-            }
-        }
+        
 
     }
     
@@ -106,7 +96,7 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
     func handleSwipes(sender:UISwipeGestureRecognizer) {
         var location = sender.locationOfTouch(0, inView: self.scnView)
         var spin = CABasicAnimation(keyPath: "rotation")
-
+        var box = self.scn.rootNode.childNodeWithName("box", recursively: true)
         var x = Float(0.0), y = Float(0.0), z = Float(0.0)
         var halfWidth = Float(self.scnView.bounds.width/2)
         switch (sender.direction,Float(location.x)) {
@@ -127,7 +117,7 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
         }
 
         let action = SCNAction.rotateByAngle(CGFloat(0.5*M_PI), aroundAxis: SCNVector3(x: x, y: y, z: z), duration: NSTimeInterval(0.15))
-        self.box?.runAction(action)
+        box?.runAction(action)
         
     }
     

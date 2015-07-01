@@ -24,7 +24,7 @@ class Primitive: SCNScene {
         redMaterial.locksAmbientWithDiffuse = true;
         
         let blueMaterial  = SCNMaterial()
-        blueMaterial.diffuse.contents = UIColor(red: 254/255, green: 1, blue: 153/255, alpha: 1.0)
+        blueMaterial.diffuse.contents = UIColor(red: 254/255, green: 1, blue: 153/255, alpha: 0.0)
         blueMaterial.locksAmbientWithDiffuse = true;
         
         boxGeometry.materials = [blueMaterial,redMaterial,blueMaterial,redMaterial,greenMaterial,greenMaterial]
