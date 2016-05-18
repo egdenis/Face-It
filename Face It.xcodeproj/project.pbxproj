@@ -7,7 +7,16 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		8F3C5E341C586453006EC33A /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3C5E331C586453006EC33A /* MenuViewController.swift */; };
+		8F4FF2591CE6221A00AF3115 /* GameoverOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4FF2581CE6221A00AF3115 /* GameoverOverlay.swift */; };
+		8F4FF25F1CE633D800AF3115 /* GameoverOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F4FF25E1CE633D800AF3115 /* GameoverOverlay.xib */; };
+		8F4FF2631CE94B4B00AF3115 /* pop2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8F4FF2601CE94B4B00AF3115 /* pop2.wav */; };
+		8F4FF2641CE94B4B00AF3115 /* pop3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8F4FF2611CE94B4B00AF3115 /* pop3.wav */; };
+		8F4FF2651CE94B4B00AF3115 /* pop1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8F4FF2621CE94B4B00AF3115 /* pop1.wav */; };
 		8F5E2DB71B1E17B000CE2DB9 /* Primitive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5E2DB61B1E17B000CE2DB9 /* Primitive.swift */; };
+		8F6E953F1B5BA5F800B741C9 /* GameOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6E953E1B5BA5F800B741C9 /* GameOverlay.swift */; };
+		8FD1B06A1CEB8D470016E0AD /* MenuOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD1B0681CEB8D470016E0AD /* MenuOverlay.swift */; };
+		8FD1B06B1CEB8D470016E0AD /* MenuOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FD1B0691CEB8D470016E0AD /* MenuOverlay.xib */; };
 		8FF0F6EC1B0E533D0001EEE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF0F6EB1B0E533D0001EEE7 /* AppDelegate.swift */; };
 		8FF0F6EE1B0E533D0001EEE7 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FF0F6ED1B0E533D0001EEE7 /* art.scnassets */; };
 		8FF0F6F01B0E533D0001EEE7 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF0F6EF1B0E533D0001EEE7 /* GameViewController.swift */; };
@@ -28,7 +37,16 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		8F3C5E331C586453006EC33A /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
+		8F4FF2581CE6221A00AF3115 /* GameoverOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameoverOverlay.swift; sourceTree = "<group>"; };
+		8F4FF25E1CE633D800AF3115 /* GameoverOverlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GameoverOverlay.xib; path = ../GameoverOverlay.xib; sourceTree = "<group>"; };
+		8F4FF2601CE94B4B00AF3115 /* pop2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pop2.wav; sourceTree = "<group>"; };
+		8F4FF2611CE94B4B00AF3115 /* pop3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pop3.wav; sourceTree = "<group>"; };
+		8F4FF2621CE94B4B00AF3115 /* pop1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pop1.wav; sourceTree = "<group>"; };
 		8F5E2DB61B1E17B000CE2DB9 /* Primitive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Primitive.swift; sourceTree = "<group>"; };
+		8F6E953E1B5BA5F800B741C9 /* GameOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverlay.swift; sourceTree = "<group>"; };
+		8FD1B0681CEB8D470016E0AD /* MenuOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuOverlay.swift; sourceTree = "<group>"; };
+		8FD1B0691CEB8D470016E0AD /* MenuOverlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuOverlay.xib; sourceTree = "<group>"; };
 		8FF0F6E61B0E533D0001EEE7 /* Face It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Face It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FF0F6EA1B0E533D0001EEE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8FF0F6EB1B0E533D0001EEE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -81,13 +99,22 @@
 		8FF0F6E81B0E533D0001EEE7 /* Face It */ = {
 			isa = PBXGroup;
 			children = (
-				8FF0F6EB1B0E533D0001EEE7 /* AppDelegate.swift */,
-				8FF0F6ED1B0E533D0001EEE7 /* art.scnassets */,
-				8FF0F6EF1B0E533D0001EEE7 /* GameViewController.swift */,
-				8FF0F6F11B0E533D0001EEE7 /* Main.storyboard */,
-				8FF0F6F41B0E533D0001EEE7 /* Images.xcassets */,
+				8F4FF2601CE94B4B00AF3115 /* pop2.wav */,
+				8F4FF2611CE94B4B00AF3115 /* pop3.wav */,
+				8F4FF2621CE94B4B00AF3115 /* pop1.wav */,
 				8FF0F6F61B0E533D0001EEE7 /* LaunchScreen.xib */,
+				8FD1B0691CEB8D470016E0AD /* MenuOverlay.xib */,
+				8F4FF25E1CE633D800AF3115 /* GameoverOverlay.xib */,
+				8FF0F6F11B0E533D0001EEE7 /* Main.storyboard */,
+				8FF0F6EF1B0E533D0001EEE7 /* GameViewController.swift */,
+				8FD1B0681CEB8D470016E0AD /* MenuOverlay.swift */,
+				8F4FF2581CE6221A00AF3115 /* GameoverOverlay.swift */,
 				8F5E2DB61B1E17B000CE2DB9 /* Primitive.swift */,
+				8F6E953E1B5BA5F800B741C9 /* GameOverlay.swift */,
+				8FF0F6EB1B0E533D0001EEE7 /* AppDelegate.swift */,
+				8F3C5E331C586453006EC33A /* MenuViewController.swift */,
+				8FF0F6ED1B0E533D0001EEE7 /* art.scnassets */,
+				8FF0F6F41B0E533D0001EEE7 /* Images.xcassets */,
 				8FF0F6E91B0E533D0001EEE7 /* Supporting Files */,
 			);
 			path = "Face It";
@@ -162,7 +189,8 @@
 		8FF0F6DE1B0E533D0001EEE7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0630;
+				LastSwiftUpdateCheck = 0720;
+				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Etienne Denis";
 				TargetAttributes = {
 					8FF0F6E51B0E533D0001EEE7 = {
@@ -199,8 +227,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8FD1B06B1CEB8D470016E0AD /* MenuOverlay.xib in Resources */,
+				8F4FF2641CE94B4B00AF3115 /* pop3.wav in Resources */,
 				8FF0F6F81B0E533D0001EEE7 /* LaunchScreen.xib in Resources */,
+				8F4FF25F1CE633D800AF3115 /* GameoverOverlay.xib in Resources */,
 				8FF0F6F51B0E533D0001EEE7 /* Images.xcassets in Resources */,
+				8F4FF2651CE94B4B00AF3115 /* pop1.wav in Resources */,
+				8F4FF2631CE94B4B00AF3115 /* pop2.wav in Resources */,
 				8FF0F6EE1B0E533D0001EEE7 /* art.scnassets in Resources */,
 				8FF0F6F31B0E533D0001EEE7 /* Main.storyboard in Resources */,
 			);
@@ -220,9 +253,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F6E953F1B5BA5F800B741C9 /* GameOverlay.swift in Sources */,
+				8F3C5E341C586453006EC33A /* MenuViewController.swift in Sources */,
 				8FF0F6F01B0E533D0001EEE7 /* GameViewController.swift in Sources */,
 				8F5E2DB71B1E17B000CE2DB9 /* Primitive.swift in Sources */,
+				8F4FF2591CE6221A00AF3115 /* GameoverOverlay.swift in Sources */,
 				8FF0F6EC1B0E533D0001EEE7 /* AppDelegate.swift in Sources */,
+				8FD1B06A1CEB8D470016E0AD /* MenuOverlay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -285,6 +322,7 @@
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -352,7 +390,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Face It/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Egdenis.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -366,7 +406,9 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Face It/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Egdenis.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -387,6 +429,7 @@
 				);
 				INFOPLIST_FILE = "Face ItTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Egdenis.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Face It.app/Face It";
 			};
@@ -402,6 +445,7 @@
 				);
 				INFOPLIST_FILE = "Face ItTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "Egdenis.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Face It.app/Face It";
 			};
