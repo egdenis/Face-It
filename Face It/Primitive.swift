@@ -50,7 +50,7 @@ class Primitive: SCNScene {
         cameraNode.position = SCNVector3Make(10,8, 10)
         cameraNode.eulerAngles = SCNVector3Make(Float(-0.55), Float(M_PI_4), Float(0))
         self.rootNode.addChildNode(cameraNode)
-        
+    
     }
     
     required init(coder aDecoder: NSCoder) {

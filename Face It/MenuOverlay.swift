@@ -15,12 +15,22 @@ import Social
     var view: UIView!
     let nibName = "MenuOverlay"
     var buttons = [false,false,false,false,false] //possible button from left to right
-
     @IBAction func play(sender: AnyObject) {
+        print(play)
         buttons[2] = true
     }
+    @IBAction func scores(sender: AnyObject) {
+    }
     
+    @IBAction func ads(sender: AnyObject) {
+        buttons[1] = true
+    }
+    @IBAction func rate(sender: AnyObject){
+        print("rate")
+        UIApplication.sharedApplication().openURL(NSURL(string : "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=1053533457&onlyLatestVersion=true&pageNumber=0&sortOrdering=1)")!);
+    }
     @IBAction func share(sender: AnyObject) {
+        print("this is share 4")
         buttons[4] = true
         
     }
@@ -29,6 +39,8 @@ import Social
 
      override init(frame: CGRect) { // programmer creates our custom View
         super.init(frame: frame)
+        print("***************HELLLLLOOOOOO THERE")
+
         setupGameover( frame)
         
     }

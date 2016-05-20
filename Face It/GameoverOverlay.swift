@@ -20,11 +20,14 @@ import UIKit
     
     @IBAction func scores(sender: AnyObject) {
         self.buttons[0] = true
+        print("scores")
 
     }
     
     @IBAction func share(sender: AnyObject) {
         self.buttons[1] = true
+        print("share")
+
     }
     
     @IBAction func restart(sender: AnyObject) {
@@ -32,7 +35,6 @@ import UIKit
 
     }
     @IBAction func rate(sender: AnyObject) {
-        self.buttons[3] = true
 
     }
     @IBAction func buy(sender: AnyObject) {

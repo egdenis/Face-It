@@ -12,6 +12,7 @@ import SceneKit
 import SpriteKit
 import AVFoundation
 import Social
+import GameKit
 
 class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysicsContactDelegate, SCNSceneRendererDelegate {
     var scnView: SCNView!
@@ -26,7 +27,8 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
     var gameState = "menu"
     var gameoverSubview: GameoverOverlay?
     var menuSubview: menuOverlay?
-    
+    var gcEnabled = Bool() // Stores if the user has Game Center enabled
+    var gcDefaultLeaderBoard = String()
 
     var sounds: [String:AVAudioPlayer] = [:]
     
@@ -74,9 +76,43 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
         scnView.showsStatistics = true
         scnView.overlaySKScene = self.overlay;
         
+        //self.authenticateLocalPlayer()
+
         setUpGameMenu()
+        print("game loaded")
     }
     
+    func authenticateLocalPlayer() {
+        let localPlayer: GKLocalPlayer = GKLocalPlayer.localPlayer()
+        
+        localPlayer.authenticateHandler = {(ViewController, error) -> Void in
+            if((ViewController) != nil) {
+                // 1 Show login if player is not logged in
+                self.presentViewController(ViewController!, animated: true, completion: nil)
+            } else if (localPlayer.authenticated) {
+                // 2 Player is already euthenticated & logged in, load game center
+                self.gcEnabled = true
+                
+                // Get the default leaderboard ID
+                localPlayer.loadDefaultLeaderboardIdentifierWithCompletionHandler({ (leaderboardIdentifer: String?, error: NSError?) -> Void in
+                    if error != nil {
+                        print(error)
+                    } else {
+                        self.gcDefaultLeaderBoard = leaderboardIdentifer!
+                    }
+                })
+                
+                
+            } else {
+                // 3 Game center is not enabled on the users device
+                self.gcEnabled = false
+                print("Local player could not be authenticated, disabling game center")
+                print(error)
+            }
+            
+        }
+        
+    }
     
     private func showFacebook() {
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) {
@@ -96,9 +132,12 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
     func share(){
         let alert = UIAlertController(title: "Share", message: "Where do you want to share?", preferredStyle: UIAlertControllerStyle.Alert)
         alert.addAction(UIAlertAction(title: "Facebook", style: .Default, handler: {(alert: UIAlertAction!) in
+            print("facebook")
             self.showFacebook()
         }))
         alert.addAction(UIAlertAction(title: "Twitter", style: .Default, handler: {(alert: UIAlertAction!) in
+            print("twitter")
+            
             self.showTwitter()
         }))
         self.presentViewController(alert, animated: true, completion: nil)
@@ -106,18 +145,18 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
     
     private func showTwitter() {
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeTwitter) {
-            let mySLComposerSheet = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
-            mySLComposerSheet.setInitialText("Check out my high score")
-            mySLComposerSheet.addURL(NSURL(string: "http://mysite.com")!)
-            presentViewController(mySLComposerSheet, animated: true, completion: nil)
-        }
-        else {
             
-            let alert = UIAlertController(title: "Accounts", message: "Please login to a Facebook account to share.", preferredStyle: UIAlertControllerStyle.Alert)
+            let tweetShare:SLComposeViewController = SLComposeViewController(forServiceType: SLServiceTypeTwitter)
+            
+            self.presentViewController(tweetShare, animated: true, completion: nil)
+            
+        } else {
+            
+            let alert = UIAlertController(title: "Accounts", message: "Please login to a Twitter account to tweet.", preferredStyle: UIAlertControllerStyle.Alert)
             
             alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+            
             self.presentViewController(alert, animated: true, completion: nil)
-            // TODO: Alert user that they do not have a twitter account set up on their device
         }
     }
     
@@ -150,6 +189,7 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
      func renderer(renderer: SCNSceneRenderer, updateAtTime time: NSTimeInterval) {
         
         if self.gameState == "play" { //is the gameover?? if not process game loop
+            print("play")
             var isGameover = false
             if(self.maxCount>35){
                 self.maxCount = self.maxCount - 0.01
@@ -234,6 +274,82 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
         }
     }
     
+
+    
+    func checkGameoverButtons(){
+        print(self.gameoverSubview!.buttons)
+        if(self.gameoverSubview!.buttons[0]){
+            self.gameoverSubview!.buttons[0] = false
+            
+        }
+        else if(self.gameoverSubview!.buttons[1]){
+            self.gameoverSubview!.buttons[1] = false
+        }
+        else if(self.gameoverSubview!.buttons[2]){
+            self.instantiateGameVars()
+            self.gameState = "play"
+            let box = self.scn.rootNode.childNodeWithName("box", recursively: true)
+            box?.removeActionForKey("rotate")
+            dispatch_async(dispatch_get_main_queue(), {
+                box?.runAction(SCNAction.rotateToX(0, y: 0, z: 0, duration: 0.5, shortestUnitArc: true))
+                
+                self.view.subviews[0].removeFromSuperview()
+            })
+            self.gameoverSubview!.buttons[2] = false
+            
+        }
+        else if(self.gameoverSubview!.buttons[3]){
+            
+        }
+        else if(self.gameoverSubview!.buttons[4]){
+            
+            self.gameoverSubview!.buttons[4] = false
+            print("shar")
+            dispatch_async(dispatch_get_main_queue(), {
+                
+                self.share()
+            })
+            
+        }
+
+    }
+    
+    func checkMenuButtons(){
+        
+            if(self.menuSubview!.buttons[0]){
+                self.menuSubview!.buttons[0] = false
+                
+            }
+            else if(self.menuSubview!.buttons[1]){
+                self.menuSubview!.buttons[1] = false
+            }
+            else if(self.menuSubview!.buttons[2]){
+                self.instantiateGameVars()
+                self.gameState = "play"
+                let box = self.scn.rootNode.childNodeWithName("box", recursively: true)
+                box?.removeActionForKey("rotate")
+                dispatch_async(dispatch_get_main_queue(), {
+                box?.runAction(SCNAction.rotateToX(0, y: 0, z: 0, duration: 0.5, shortestUnitArc: true))
+                
+                self.view.subviews[0].removeFromSuperview()
+                    })
+                self.menuSubview!.buttons[2] = false
+            }
+            else if(self.menuSubview!.buttons[3]){
+                
+            }
+            else if(self.menuSubview!.buttons[4]){
+
+                self.menuSubview!.buttons[4] = false
+                print("shar")
+                dispatch_async(dispatch_get_main_queue(), {
+                    
+                    self.share()
+                })
+
+            }
+        }
+    
     func createThreeSpheres(){
         let firstSphereColor = Int(arc4random_uniform(3))
         var secondSphereColor = 1
@@ -251,63 +367,6 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
         self.addSphere((3 - firstSphereColor - secondSphereColor) ,positionIndex: 2)
     }
     
-    func checkGameoverButtons(){
-        if(self.gameoverSubview!.buttons[0]){
-            
-        }
-        else if(self.gameoverSubview!.buttons[1]){
-            
-        }
-        else if(self.gameoverSubview!.buttons[2]){
-            
-            instantiateGameVars()
-            self.gameState = "play"
-            let box = self.scn.rootNode.childNodeWithName("box", recursively: true)
-            box?.removeActionForKey("rotate")
-            box?.runAction(SCNAction.rotateToX(0, y: 0, z: 0, duration: 0.5, shortestUnitArc: true))
-            dispatch_async(dispatch_get_main_queue(), {
-            self.view.subviews[0].removeFromSuperview()
-            })
-        }
-        else if(self.gameoverSubview!.buttons[3]){
-            
-        }
-        else if(self.gameoverSubview!.buttons[4]){
-            share()
-            self.gameoverSubview!.buttons[4] = false
-        }
-    }
-    
-    func checkMenuButtons(){
-        dispatch_async(dispatch_get_main_queue(), {
-            if(self.menuSubview!.buttons[0]){
-                
-            }
-            else if(self.menuSubview!.buttons[1]){
-                
-            }
-            else if(self.menuSubview!.buttons[2]){
-                
-                self.instantiateGameVars()
-                self.gameState = "play"
-                let box = self.scn.rootNode.childNodeWithName("box", recursively: true)
-                box?.removeActionForKey("rotate")
-                box?.runAction(SCNAction.rotateToX(0, y: 0, z: 0, duration: 0.5, shortestUnitArc: true))
-                
-                self.view.subviews[0].removeFromSuperview()
-                
-            }
-            else if(self.menuSubview!.buttons[3]){
-                
-            }
-            else if(self.menuSubview!.buttons[4]){
-                
-                self.share()
-                self.menuSubview!.buttons[4] = false
-
-            }
-        })
-    }
     func setUpGameMenu(){
         let box = self.scn.rootNode.childNodeWithName("box", recursively: true)
         box?.runAction(SCNAction.repeatActionForever(SCNAction.rotateByX(0.5, y: 0, z: 0.0, duration: 1)), forKey: "rotate")
@@ -316,6 +375,7 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
             self.scnView.addSubview(self.menuSubview!)
         })
     }
+    
     func gameOver(){
         let box = self.scn.rootNode.childNodeWithName("box", recursively: true)
         self.gameState = "gameover"
