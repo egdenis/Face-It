@@ -180,8 +180,8 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
     
     func instantiateGameVars(){
         self.colorOrder = ["blue","red","yellow"]
-        self.count = 48.0//probabilit of a spher spawning
-        self.maxCount = 45.0//hardest setting
+        self.count = 60.0//probabilit of a spher spawning
+        self.maxCount = 60.0//hardest setting
         self.spheres = []
         self.score = 0
     }
@@ -212,7 +212,6 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
                 let position = self.spheres[i].position
 
                 if(position.x > 1.15 && position.x<1.3 && self.counted[i] == 0){
-                    print(self.spheres[i].name)
 
                     if(self.colorOrder[1]==self.spheres[i].name!){
                         self.score++
@@ -227,7 +226,6 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
                 }
                 else if(position.y > 1.15 && position.y<1.3 && self.counted[i] == 0){
                     
-                    print(self.spheres[i].name)
                     if(self.colorOrder[0]==self.spheres[i].name!){
                         self.score++
                         self.counted[i] = 1
@@ -240,7 +238,6 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
                 }
                 else if(position.z > 1.15 && position.z<1.3 && self.counted[i] == 0){
                     
-                    print(self.spheres[i].name)
 
                     if(self.colorOrder[2]==self.spheres[i].name!){
                         self.score++
@@ -267,10 +264,10 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
                 gameOver()
             }
         }
-        else if self.gameState == "gameover" {
+        else if self.gameState == "gameover"  && self.gameoverSubview != nil {
             checkGameoverButtons()
         }
-        else if self.gameState == "menu" {
+        else if self.gameState == "menu" && self.menuSubview != nil {
             checkMenuButtons()
         }
     }
@@ -418,24 +415,24 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
     }
     
     func addSphere(colorIndex: Int = Int(arc4random_uniform(3)), positionIndex: Int = Int(arc4random_uniform(3)) ){
-
-        let colors = [UIColor(red: 0/255, green: 76/255, blue: 116/255, alpha: 0.9) ,UIColor(red: 205/255, green: 32/255, blue: 34/255, alpha: 0.9),UIColor(red: 229/255, green: 200/255, blue: 70/255, alpha: 1)]
+        
+        let colors = [UIColor(red: (247+6/255), green: (194+12)/255, blue: (49+17)/255, alpha: 1.0),UIColor(red: (229+6)/255, green: (72+12)/255, blue: (48+17)/255, alpha: 1.0),UIColor(red: (48+6)/255, green: (68+12)/255, blue: (84+17)/255, alpha: 1.0)]
         let colorNames = ["blue","red","yellow"]
         var position = [Float(0),Float(0),Float(0)]
         
         position[positionIndex] = Float(10)
         
         let materialColor  = SCNMaterial()
-
+        
         materialColor.diffuse.contents = colors[colorIndex]
-        materialColor.locksAmbientWithDiffuse = true;
+        materialColor.locksAmbientWithDiffuse = false;
         
         let sphereGeometry = SCNSphere(radius:0.3)
         sphereGeometry.materials = [materialColor]
         
         let sphere = SCNNode(geometry: sphereGeometry)
-     //   let sphereShape = SCNPhysicsShape(geometry: sphereGeometry, options: nil)
-      //  let sphereBody = SCNPhysicsBody(type: .Kinematic, shape: sphereShape)
+        //   let sphereShape = SCNPhysicsShape(geometry: sphereGeometry, options: nil)
+        //  let sphereBody = SCNPhysicsBody(type: .Kinematic, shape: sphereShape)
         
         sphere.position = SCNVector3Make(position[0],position[1],position[2])
         //sphere.physicsBody = sphereBody;
@@ -443,7 +440,7 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
         self.scn.rootNode.addChildNode(sphere)
         self.spheres.append(sphere)
         self.counted.append(0)
-        sphere.runAction(SCNAction.moveTo(SCNVector3(x:0,y:0,z:0), duration: NSTimeInterval(2.7)))
+        sphere.runAction(SCNAction.moveTo(SCNVector3(x:0,y:0,z:0), duration: NSTimeInterval(3)))
     }
 
     
@@ -452,9 +449,9 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
     }
     
     func handleSwipes(sender:UISwipeGestureRecognizer) {
-
+        
         let location = sender.locationOfTouch(0, inView: self.scnView)
-       // let spin = CABasicAnimation(keyPath: "rotation")
+        // let spin = CABasicAnimation(keyPath: "rotation")
         let box = self.scn.rootNode.childNodeWithName("box", recursively: true)
         var x = Float(0.0), y = Float(0.0), z = Float(0.0)
         let halfWidth = Float(self.scnView.bounds.width/2)
@@ -464,50 +461,49 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
             let color = self.colorOrder[1]
             self.colorOrder[1] = self.colorOrder[2]
             self.colorOrder[2] = color
-
+            
         case (UISwipeGestureRecognizerDirection.Right,_): //swipe right
             y = 1
-            let color = self.colorOrder[2]
-            self.colorOrder[2] = self.colorOrder[2]
-            self.colorOrder[1] = color
-
-
-
+            let color = self.colorOrder[1]
+            self.colorOrder[1] = self.colorOrder[2]
+            self.colorOrder[2] = color
+            
+            
+            
         case let (UISwipeGestureRecognizerDirection.Up, xPos) where xPos <= halfWidth: //swipe up on the left side of the screen
             x = -1
             let color = self.colorOrder[2]
             self.colorOrder[2] = self.colorOrder[0]
             self.colorOrder[0] = color
-        
-        case let (UISwipeGestureRecognizerDirection.Down, xPos) where xPos <= halfWidth: //swipe down on the left side of the screen
-            x = 1
-            let color = self.colorOrder[0]
-            self.colorOrder[0] = self.colorOrder[2]
-            self.colorOrder[2] = color
-
+            
         case let (UISwipeGestureRecognizerDirection.Up, xPos) where xPos > halfWidth: //swipe up on the right side of the sceen
             z = 1
             let color = self.colorOrder[1]
             self.colorOrder[1] = self.colorOrder[0]
             self.colorOrder[0] = color
-
-        
+            
+        case let (UISwipeGestureRecognizerDirection.Down, xPos) where xPos <= halfWidth: //swipe down on the left side of the screen
+            x = 1
+            let color = self.colorOrder[0]
+            self.colorOrder[0] = self.colorOrder[2]
+            self.colorOrder[2] = color
+            
         case let (UISwipeGestureRecognizerDirection.Down, xPos) where xPos > halfWidth: //swipe down on the right side of the screen
             z = -1
             let color = self.colorOrder[0]
             self.colorOrder[0] = self.colorOrder[1]
             self.colorOrder[1] = color
-
+            
         default:
             break
         }
-
+        
         let action = SCNAction.rotateByAngle(CGFloat(0.5*M_PI), aroundAxis: SCNVector3(x: x, y: y, z: z), duration: NSTimeInterval(0.08))
         box?.runAction(action)
-
-
+        
+        
     }
-    
+
     override func shouldAutorotate() -> Bool {
         return true
     }
