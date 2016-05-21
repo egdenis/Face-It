@@ -48,7 +48,8 @@ import UIKit
         setupGameover( frame)
         scoreLabel.text = String(score)
         highscoreLabel.text = NSUserDefaults().stringForKey("highscore")
-        
+        print("its good")
+
         }
     
     

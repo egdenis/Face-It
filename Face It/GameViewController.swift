@@ -41,7 +41,7 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
         self.colorOrder = ["blue","red","yellow"]
         self.scnView = self.view as! SCNView
         self.scnView.scene = self.scn
-        self.scnView.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 247/255, alpha: 1.0)
+        self.scnView.backgroundColor = UIColor(red: (243+6)/255, green: (224+12)/255, blue: (177+31)/255, alpha: 1.0)
         self.scnView.antialiasingMode = SCNAntialiasingMode.Multisampling4X
         self.scnView.delegate = self
         // configure the view
@@ -189,7 +189,6 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
      func renderer(renderer: SCNSceneRenderer, updateAtTime time: NSTimeInterval) {
         
         if self.gameState == "play" { //is the gameover?? if not process game loop
-            print("play")
             var isGameover = false
             if(self.maxCount>35){
                 self.maxCount = self.maxCount - 0.01
@@ -213,7 +212,8 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
                 let position = self.spheres[i].position
 
                 if(position.x > 1.15 && position.x<1.3 && self.counted[i] == 0){
-                    
+                    print(self.spheres[i].name)
+
                     if(self.colorOrder[1]==self.spheres[i].name!){
                         self.score++
                         self.counted[i] = 1
@@ -227,7 +227,7 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
                 }
                 else if(position.y > 1.15 && position.y<1.3 && self.counted[i] == 0){
                     
-                    
+                    print(self.spheres[i].name)
                     if(self.colorOrder[0]==self.spheres[i].name!){
                         self.score++
                         self.counted[i] = 1
@@ -240,7 +240,8 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
                 }
                 else if(position.z > 1.15 && position.z<1.3 && self.counted[i] == 0){
                     
-                    
+                    print(self.spheres[i].name)
+
                     if(self.colorOrder[2]==self.spheres[i].name!){
                         self.score++
                         self.counted[i] = 1
@@ -277,7 +278,6 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
 
     
     func checkGameoverButtons(){
-        print(self.gameoverSubview!.buttons)
         if(self.gameoverSubview!.buttons[0]){
             self.gameoverSubview!.buttons[0] = false
             
@@ -377,6 +377,12 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
     }
     
     func gameOver(){
+        dispatch_async(dispatch_get_main_queue(), { //make ui changes in main thread to avoid "this application is modifying the autolayout engine from a background thread"
+            self.gameoverSubview = GameoverOverlay(frame: CGRect(x: 0, y: 0, width: self.scnView.bounds.width, height: self.scnView.bounds.height), score: self.score ) //instatiate ui
+            
+            self.scnView.addSubview(self.gameoverSubview!)
+        })
+
         let box = self.scn.rootNode.childNodeWithName("box", recursively: true)
         self.gameState = "gameover"
         for (var i = self.spheres.endIndex-1 ; i>=0; i-- ){
@@ -394,13 +400,8 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
         {
             userDefaults.setInteger(self.score, forKey: "highscore")
         }
-        
         userDefaults.synchronize()
-        dispatch_async(dispatch_get_main_queue(), { //make ui changes in main thread to avoid "this application is modifying the autolayout engine from a background thread"
-        self.gameoverSubview = GameoverOverlay(frame: CGRect(x: 0, y: 0, width: self.scnView.bounds.width, height: self.scnView.bounds.height), score: self.score ) //instatiate ui
-            
-        self.scnView.addSubview(self.gameoverSubview!)
-        })
+
         
       //  performSegueWithIdentifier("gameOver", sender: self.score)
 
@@ -418,7 +419,7 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
     
     func addSphere(colorIndex: Int = Int(arc4random_uniform(3)), positionIndex: Int = Int(arc4random_uniform(3)) ){
 
-        let colors = [UIColor(red: 229/255, green: 200/255, blue: 70/255, alpha: 1),UIColor(red: 205/255, green: 32/255, blue: 34/255, alpha: 0.9),UIColor(red: 0/255, green: 76/255, blue: 116/255, alpha: 0.9)]
+        let colors = [UIColor(red: 0/255, green: 76/255, blue: 116/255, alpha: 0.9) ,UIColor(red: 205/255, green: 32/255, blue: 34/255, alpha: 0.9),UIColor(red: 229/255, green: 200/255, blue: 70/255, alpha: 1)]
         let colorNames = ["blue","red","yellow"]
         var position = [Float(0),Float(0),Float(0)]
         
@@ -466,9 +467,9 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
 
         case (UISwipeGestureRecognizerDirection.Right,_): //swipe right
             y = 1
-            let color = self.colorOrder[1]
-            self.colorOrder[1] = self.colorOrder[2]
-            self.colorOrder[2] = color
+            let color = self.colorOrder[2]
+            self.colorOrder[2] = self.colorOrder[2]
+            self.colorOrder[1] = color
 
 
 
@@ -477,6 +478,12 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
             let color = self.colorOrder[2]
             self.colorOrder[2] = self.colorOrder[0]
             self.colorOrder[0] = color
+        
+        case let (UISwipeGestureRecognizerDirection.Down, xPos) where xPos <= halfWidth: //swipe down on the left side of the screen
+            x = 1
+            let color = self.colorOrder[0]
+            self.colorOrder[0] = self.colorOrder[2]
+            self.colorOrder[2] = color
 
         case let (UISwipeGestureRecognizerDirection.Up, xPos) where xPos > halfWidth: //swipe up on the right side of the sceen
             z = 1
@@ -484,12 +491,7 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
             self.colorOrder[1] = self.colorOrder[0]
             self.colorOrder[0] = color
 
-        case let (UISwipeGestureRecognizerDirection.Down, xPos) where xPos <= halfWidth: //swipe down on the left side of the screen
-            x = 1
-            let color = self.colorOrder[0]
-            self.colorOrder[0] = self.colorOrder[2]
-            self.colorOrder[2] = color
-
+        
         case let (UISwipeGestureRecognizerDirection.Down, xPos) where xPos > halfWidth: //swipe down on the right side of the screen
             z = -1
             let color = self.colorOrder[0]

@@ -16,16 +16,16 @@ class Primitive: SCNScene {
         let boxGeometry = SCNBox(width: 3.5, height: 3.5, length: 3.5, chamferRadius: 0.1)
        
         let yellowMaterial = SCNMaterial()
-        yellowMaterial.diffuse.contents = UIColor(red: 253/255, green: 223/255, blue: 78/255, alpha: 1.0)
-        yellowMaterial.locksAmbientWithDiffuse = true;
+        yellowMaterial.diffuse.contents = UIColor(red: 247/255, green: 194/255, blue: 49/255, alpha: 1.0)
+        yellowMaterial.locksAmbientWithDiffuse = false;
         
         let redMaterial = SCNMaterial()
-        redMaterial.diffuse.contents = UIColor(red: 228/255, green: 36/255, blue: 38/255, alpha: 1.0)
-        redMaterial.locksAmbientWithDiffuse = true;
+        redMaterial.diffuse.contents = UIColor(red: 229/255, green: 72/255, blue: 48/255, alpha: 1.0)
+        redMaterial.locksAmbientWithDiffuse = false;
         
         let blueMaterial  = SCNMaterial()
-        blueMaterial.diffuse.contents = UIColor(red: 0/255, green: 85/255, blue: 129/255, alpha: 1.0)
-        blueMaterial.locksAmbientWithDiffuse = true;
+        blueMaterial.diffuse.contents = UIColor(red: 48/255, green: 68/255, blue: 84/255, alpha: 1.0)
+        blueMaterial.locksAmbientWithDiffuse = false;
         
         boxGeometry.materials = [blueMaterial,redMaterial,blueMaterial,redMaterial,yellowMaterial,yellowMaterial]
         
@@ -50,7 +50,7 @@ class Primitive: SCNScene {
         cameraNode.position = SCNVector3Make(10,8, 10)
         cameraNode.eulerAngles = SCNVector3Make(Float(-0.55), Float(M_PI_4), Float(0))
         self.rootNode.addChildNode(cameraNode)
-    
+        
     }
     
     required init(coder aDecoder: NSCoder) {
