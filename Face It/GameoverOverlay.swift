@@ -1,4 +1,4 @@
-//
+    //
 //  GameoverOverlay.swift
 //  Face It
 //
@@ -8,47 +8,105 @@
 
 import Foundation
 import UIKit
+import GoogleMobileAds
+    
 
-@IBDesignable class GameoverOverlay: UIView {
+@IBDesignable class GameoverOverlay: UIView, GADBannerViewDelegate {
     
     var view: UIView!
     let nibName = "GameoverOverlay"
     var buttons = [false,false,false,false,false] //possible button from left to right
     
+    @IBOutlet weak var bannerView: GADBannerView!
     @IBOutlet weak var highscoreLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
+    @IBOutlet weak var bestText: UILabel!
+   
+    @IBOutlet weak var shareImage: UIImageView!
+    @IBOutlet weak var shareButton: RoundedButton!
+    @IBOutlet weak var adsImage: UIImageView!
+    @IBOutlet weak var adsButton: RoundedButton!
+    @IBOutlet weak var playButton: RoundedButton!
     
-    @IBAction func scores(sender: AnyObject) {
-        self.buttons[0] = true
-        print("scores")
+    @IBOutlet weak var playImage: UIImageView!
+    @IBOutlet weak var scoreText: UILabel!
+    @IBOutlet weak var playScore: UILabel!
+    @IBOutlet weak var pauseButton: UIButton!
+    @IBAction func pauseButton(sender: AnyObject) {
+    }
+    @IBAction func ads(sender: AnyObject) {
+        self.buttons[1] = true
+        print("ads gameove")
+
+    }
+    
+    
+    @IBAction func play(sender: AnyObject) {
+        self.buttons[2] = true
 
     }
     
     @IBAction func share(sender: AnyObject) {
-        self.buttons[1] = true
-        print("share")
-
+        self.buttons[3] = true
+        print("gmaeover share")
     }
     
-    @IBAction func restart(sender: AnyObject) {
-        self.buttons[2] = true
-
-    }
-    @IBAction func rate(sender: AnyObject) {
-
-    }
-    @IBAction func buy(sender: AnyObject) {
-        self.buttons[4] = true
-    }
-
-
-     init(frame: CGRect, score: Int) { // programmer creates our custom View
-        super.init(frame: frame)
+    func updateScore(score: Int){
+        print("score:")
         print(score)
+
+        print(self.playScore.text!)
+        dispatch_async(dispatch_get_main_queue(), {
+        self.playScore.text = String(stringInterpolationSegment:score)
+        self.scoreLabel.text = String(stringInterpolationSegment:score)
+        })
+    }
+    
+    func play(){
+        self.playScore.text = "0"
+        self.pauseButton.fadeIn()
+        self.playScore.fadeIn()
+        self.scoreLabel.hidden = true
+        self.highscoreLabel.hidden = true
+        self.bestText.hidden = true
+        self.scoreText.hidden = true
+        self.shareImage.hidden = true
+        self.shareButton.hidden = true
+        self.playButton.hidden = true
+        self.playImage.hidden = true
+        self.adsButton.hidden = true
+        self.adsImage.hidden = true
+    }
+
+    func gameover(){
+        
+        self.pauseButton.fadeOut()
+        self.playScore.fadeOut()
+        self.scoreLabel.hidden = false
+        self.highscoreLabel.hidden = false
+        self.bestText.hidden = false
+        self.scoreText.hidden = false
+        self.shareImage.hidden = false
+        self.shareButton.hidden = false
+        self.playButton.hidden = false
+        self.playImage.hidden = false
+        self.adsButton.hidden = false
+        self.adsImage.hidden = false
+    }
+    init(frame: CGRect, score: Int, rootViewController: UIViewController) { // programmer creates our custom View
+        super.init(frame: frame)
+       
+        
+        print(score)
+        
         setupGameover( frame)
         scoreLabel.text = String(score)
-        highscoreLabel.text = NSUserDefaults().stringForKey("highscore")
+        highscoreLabel.text = (NSUserDefaults().stringForKey("highscore"))
         print("its good")
+        
+        bannerView.adUnitID = "ca-app-pub-3940256099942544/2934735716"
+        bannerView.rootViewController = rootViewController
+        bannerView.loadRequest(GADRequest())
 
         }
     

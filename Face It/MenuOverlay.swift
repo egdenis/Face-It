@@ -10,13 +10,43 @@ import Foundation
 import UIKit
 import Social
 
-@IBDesignable class menuOverlay: UIView {
+@IBDesignable class MenuOverlay: UIView {
     
     var view: UIView!
     let nibName = "MenuOverlay"
-    var buttons = [false,false,false,false,false] //possible button from left to right
+    var buttons = [false,false,false,false,false]
+    
+    @IBAction func scores(sender: AnyObject) {
+        buttons[0] = true
+
+    }
+    
+    @IBAction func ads(sender: AnyObject) {
+        buttons[1] = true
+        
+    }
     @IBAction func play(sender: AnyObject) {
-        print(play)
+        buttons[2] = true
+    }
+    
+  
+    
+    @IBAction func share(sender: AnyObject) {
+        print("this is share 4")
+        buttons[3] = true
+    }
+    //possible button from left to right
+  
+    
+    @IBAction func rate(sender: AnyObject) {
+        print("rate")
+        UIApplication.sharedApplication().openURL(NSURL(string : "itms-apps://itunes.apple.com/WebObjects/MZStore.woa/wa/viewContentsUserReviews?id=1053533457&onlyLatestVersion=true&pageNumber=0&sortOrdering=1)")!);
+    }
+    
+    /*@IBAction func play(sender: AnyObject) {
+        print("play")
+        print("play")
+
         buttons[2] = true
     }
     @IBAction func scores(sender: AnyObject) {
@@ -34,7 +64,7 @@ import Social
         buttons[4] = true
         
     }
-
+*/
 
 
      override init(frame: CGRect) { // programmer creates our custom View
@@ -48,8 +78,18 @@ import Social
     
     required init!(coder aDecoder: NSCoder) {  // Storyboard or UI File
         super.init(coder: aDecoder)
+        
+        print("required init")
         let frame = CGRect(x: 0, y: 0, width: 250, height: 100)
         setupGameover(frame)
+    }
+    
+    func gameover(){
+        
+    }
+    
+    func play(){
+        
     }
     
     func setupGameover(frame: CGRect) { // setup XIB here

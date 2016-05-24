@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		588B99210DB3A17E7607C82D /* Pods_Face_ItTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F7427A040975A08E6C99D16 /* Pods_Face_ItTests.framework */; };
 		8F3C5E341C586453006EC33A /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3C5E331C586453006EC33A /* MenuViewController.swift */; };
 		8F4FF2591CE6221A00AF3115 /* GameoverOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4FF2581CE6221A00AF3115 /* GameoverOverlay.swift */; };
 		8F4FF25F1CE633D800AF3115 /* GameoverOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F4FF25E1CE633D800AF3115 /* GameoverOverlay.xib */; };
@@ -14,9 +15,19 @@
 		8F4FF2641CE94B4B00AF3115 /* pop3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8F4FF2611CE94B4B00AF3115 /* pop3.wav */; };
 		8F4FF2651CE94B4B00AF3115 /* pop1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8F4FF2621CE94B4B00AF3115 /* pop1.wav */; };
 		8F5E2DB71B1E17B000CE2DB9 /* Primitive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5E2DB61B1E17B000CE2DB9 /* Primitive.swift */; };
-		8F6E953F1B5BA5F800B741C9 /* GameOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F6E953E1B5BA5F800B741C9 /* GameOverlay.swift */; };
+		8FBB944E1CF33C2C00735BF8 /* PlayOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBB944D1CF33C2C00735BF8 /* PlayOverlay.swift */; };
+		8FBB94501CF359D600735BF8 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBB944F1CF359D600735BF8 /* RoundedButton.swift */; };
+		8FBB94551CF3A27600735BF8 /* PlayButtonSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FBB94521CF3A27600735BF8 /* PlayButtonSymbol.png */; };
+		8FBB94581CF3B6EC00735BF8 /* NoAdsSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FBB94571CF3B6EC00735BF8 /* NoAdsSymbol.png */; };
+		8FBB945A1CF3BC9B00735BF8 /* MenuOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FBB94591CF3BC9B00735BF8 /* MenuOverlay.xib */; };
+		8FBB945D1CF3F6EC00735BF8 /* home.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FBB945B1CF3F6EC00735BF8 /* home.png */; };
+		8FBB945E1CF3F6EC00735BF8 /* Pause.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FBB945C1CF3F6EC00735BF8 /* Pause.png */; };
+		8FBB94621CF4117000735BF8 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBB94611CF4117000735BF8 /* UIViewExtensions.swift */; };
+		8FBB94651CF419B600735BF8 /* star.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FBB94631CF419B600735BF8 /* star.png */; };
+		8FBB94661CF419B600735BF8 /* scores.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FBB94641CF419B600735BF8 /* scores.png */; };
+		8FBB946A1CF4218800735BF8 /* share.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FBB94691CF4218800735BF8 /* share.png */; };
 		8FD1B06A1CEB8D470016E0AD /* MenuOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FD1B0681CEB8D470016E0AD /* MenuOverlay.swift */; };
-		8FD1B06B1CEB8D470016E0AD /* MenuOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FD1B0691CEB8D470016E0AD /* MenuOverlay.xib */; };
+		8FD6806C1CF2C81C00217024 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8FD6806B1CF2C81C00217024 /* GoogleService-Info.plist */; };
 		8FF0F6EC1B0E533D0001EEE7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF0F6EB1B0E533D0001EEE7 /* AppDelegate.swift */; };
 		8FF0F6EE1B0E533D0001EEE7 /* art.scnassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FF0F6ED1B0E533D0001EEE7 /* art.scnassets */; };
 		8FF0F6F01B0E533D0001EEE7 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF0F6EF1B0E533D0001EEE7 /* GameViewController.swift */; };
@@ -24,6 +35,7 @@
 		8FF0F6F51B0E533D0001EEE7 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8FF0F6F41B0E533D0001EEE7 /* Images.xcassets */; };
 		8FF0F6F81B0E533D0001EEE7 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8FF0F6F61B0E533D0001EEE7 /* LaunchScreen.xib */; };
 		8FF0F7041B0E533D0001EEE7 /* Face_ItTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FF0F7031B0E533D0001EEE7 /* Face_ItTests.swift */; };
+		94C855AFE049E93659B3D99C /* Pods_Face_It.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B37A7406764E3D8A7D4282FE /* Pods_Face_It.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -37,6 +49,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0F7427A040975A08E6C99D16 /* Pods_Face_ItTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Face_ItTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2426009F33ADE946ABF8DF12 /* Pods-Face ItTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Face ItTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Face ItTests/Pods-Face ItTests.release.xcconfig"; sourceTree = "<group>"; };
+		3359E6AA4D1B317E54889DD7 /* Pods-Face It.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Face It.release.xcconfig"; path = "Pods/Target Support Files/Pods-Face It/Pods-Face It.release.xcconfig"; sourceTree = "<group>"; };
+		5603C28C6F43F98FA8E155D2 /* Pods-Face ItTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Face ItTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Face ItTests/Pods-Face ItTests.debug.xcconfig"; sourceTree = "<group>"; };
 		8F3C5E331C586453006EC33A /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		8F4FF2581CE6221A00AF3115 /* GameoverOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameoverOverlay.swift; sourceTree = "<group>"; };
 		8F4FF25E1CE633D800AF3115 /* GameoverOverlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GameoverOverlay.xib; path = ../GameoverOverlay.xib; sourceTree = "<group>"; };
@@ -44,9 +60,20 @@
 		8F4FF2611CE94B4B00AF3115 /* pop3.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pop3.wav; sourceTree = "<group>"; };
 		8F4FF2621CE94B4B00AF3115 /* pop1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pop1.wav; sourceTree = "<group>"; };
 		8F5E2DB61B1E17B000CE2DB9 /* Primitive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Primitive.swift; sourceTree = "<group>"; };
-		8F6E953E1B5BA5F800B741C9 /* GameOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverlay.swift; sourceTree = "<group>"; };
+		8FBB94481CF2CEE100735BF8 /* Face It-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Face It-Bridging-Header.h"; sourceTree = "<group>"; };
+		8FBB944D1CF33C2C00735BF8 /* PlayOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayOverlay.swift; sourceTree = "<group>"; };
+		8FBB944F1CF359D600735BF8 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
+		8FBB94521CF3A27600735BF8 /* PlayButtonSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayButtonSymbol.png; sourceTree = "<group>"; };
+		8FBB94571CF3B6EC00735BF8 /* NoAdsSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NoAdsSymbol.png; sourceTree = "<group>"; };
+		8FBB94591CF3BC9B00735BF8 /* MenuOverlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuOverlay.xib; sourceTree = SOURCE_ROOT; };
+		8FBB945B1CF3F6EC00735BF8 /* home.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = home.png; sourceTree = "<group>"; };
+		8FBB945C1CF3F6EC00735BF8 /* Pause.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Pause.png; sourceTree = "<group>"; };
+		8FBB94611CF4117000735BF8 /* UIViewExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		8FBB94631CF419B600735BF8 /* star.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = star.png; sourceTree = "<group>"; };
+		8FBB94641CF419B600735BF8 /* scores.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = scores.png; sourceTree = "<group>"; };
+		8FBB94691CF4218800735BF8 /* share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = share.png; sourceTree = "<group>"; };
 		8FD1B0681CEB8D470016E0AD /* MenuOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuOverlay.swift; sourceTree = "<group>"; };
-		8FD1B0691CEB8D470016E0AD /* MenuOverlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MenuOverlay.xib; sourceTree = "<group>"; };
+		8FD6806B1CF2C81C00217024 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		8FF0F6E61B0E533D0001EEE7 /* Face It.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Face It.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FF0F6EA1B0E533D0001EEE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8FF0F6EB1B0E533D0001EEE7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -58,6 +85,8 @@
 		8FF0F6FD1B0E533D0001EEE7 /* Face ItTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Face ItTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		8FF0F7021B0E533D0001EEE7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8FF0F7031B0E533D0001EEE7 /* Face_ItTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Face_ItTests.swift; sourceTree = "<group>"; };
+		B0CC66CD66BA1A07B77B615E /* Pods-Face It.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Face It.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Face It/Pods-Face It.debug.xcconfig"; sourceTree = "<group>"; };
+		B37A7406764E3D8A7D4282FE /* Pods_Face_It.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Face_It.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94C855AFE049E93659B3D99C /* Pods_Face_It.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,18 +102,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				588B99210DB3A17E7607C82D /* Pods_Face_ItTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2E3DB686E7E2A05B36A747B6 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				B37A7406764E3D8A7D4282FE /* Pods_Face_It.framework */,
+				0F7427A040975A08E6C99D16 /* Pods_Face_ItTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8FF0F6DD1B0E533D0001EEE7 = {
 			isa = PBXGroup;
 			children = (
 				8FF0F6E81B0E533D0001EEE7 /* Face It */,
 				8FF0F7001B0E533D0001EEE7 /* Face ItTests */,
 				8FF0F6E71B0E533D0001EEE7 /* Products */,
+				B6AEC96050615D9E7FFDA855 /* Pods */,
+				2E3DB686E7E2A05B36A747B6 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -100,22 +142,33 @@
 			isa = PBXGroup;
 			children = (
 				8F4FF2601CE94B4B00AF3115 /* pop2.wav */,
+				8FBB94611CF4117000735BF8 /* UIViewExtensions.swift */,
 				8F4FF2611CE94B4B00AF3115 /* pop3.wav */,
 				8F4FF2621CE94B4B00AF3115 /* pop1.wav */,
 				8FF0F6F61B0E533D0001EEE7 /* LaunchScreen.xib */,
-				8FD1B0691CEB8D470016E0AD /* MenuOverlay.xib */,
 				8F4FF25E1CE633D800AF3115 /* GameoverOverlay.xib */,
+				8FBB94591CF3BC9B00735BF8 /* MenuOverlay.xib */,
 				8FF0F6F11B0E533D0001EEE7 /* Main.storyboard */,
 				8FF0F6EF1B0E533D0001EEE7 /* GameViewController.swift */,
+				8FBB945B1CF3F6EC00735BF8 /* home.png */,
+				8FBB945C1CF3F6EC00735BF8 /* Pause.png */,
+				8FBB94521CF3A27600735BF8 /* PlayButtonSymbol.png */,
+				8FBB94631CF419B600735BF8 /* star.png */,
+				8FBB94691CF4218800735BF8 /* share.png */,
+				8FBB94641CF419B600735BF8 /* scores.png */,
+				8FBB94571CF3B6EC00735BF8 /* NoAdsSymbol.png */,
+				8FBB944D1CF33C2C00735BF8 /* PlayOverlay.swift */,
 				8FD1B0681CEB8D470016E0AD /* MenuOverlay.swift */,
+				8FD6806B1CF2C81C00217024 /* GoogleService-Info.plist */,
 				8F4FF2581CE6221A00AF3115 /* GameoverOverlay.swift */,
+				8FBB944F1CF359D600735BF8 /* RoundedButton.swift */,
 				8F5E2DB61B1E17B000CE2DB9 /* Primitive.swift */,
-				8F6E953E1B5BA5F800B741C9 /* GameOverlay.swift */,
 				8F3C5E331C586453006EC33A /* MenuViewController.swift */,
 				8FF0F6EB1B0E533D0001EEE7 /* AppDelegate.swift */,
 				8FF0F6ED1B0E533D0001EEE7 /* art.scnassets */,
 				8FF0F6F41B0E533D0001EEE7 /* Images.xcassets */,
 				8FF0F6E91B0E533D0001EEE7 /* Supporting Files */,
+				8FBB94481CF2CEE100735BF8 /* Face It-Bridging-Header.h */,
 			);
 			path = "Face It";
 			sourceTree = "<group>";
@@ -145,6 +198,17 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		B6AEC96050615D9E7FFDA855 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B0CC66CD66BA1A07B77B615E /* Pods-Face It.debug.xcconfig */,
+				3359E6AA4D1B317E54889DD7 /* Pods-Face It.release.xcconfig */,
+				5603C28C6F43F98FA8E155D2 /* Pods-Face ItTests.debug.xcconfig */,
+				2426009F33ADE946ABF8DF12 /* Pods-Face ItTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -152,9 +216,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8FF0F7071B0E533D0001EEE7 /* Build configuration list for PBXNativeTarget "Face It" */;
 			buildPhases = (
+				10550B6764FD27487C03CC49 /* 📦 Check Pods Manifest.lock */,
 				8FF0F6E21B0E533D0001EEE7 /* Sources */,
 				8FF0F6E31B0E533D0001EEE7 /* Frameworks */,
 				8FF0F6E41B0E533D0001EEE7 /* Resources */,
+				11335C003BEF2EA8201756C8 /* 📦 Embed Pods Frameworks */,
+				015A6A00D917001A251EBC9A /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -169,9 +236,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8FF0F70A1B0E533D0001EEE7 /* Build configuration list for PBXNativeTarget "Face ItTests" */;
 			buildPhases = (
+				1D30CDD98FE67B793CC33D85 /* 📦 Check Pods Manifest.lock */,
 				8FF0F6F91B0E533D0001EEE7 /* Sources */,
 				8FF0F6FA1B0E533D0001EEE7 /* Frameworks */,
 				8FF0F6FB1B0E533D0001EEE7 /* Resources */,
+				650508FA5111648BC4A5C36A /* 📦 Embed Pods Frameworks */,
+				417190B86479A31C462C2DB1 /* 📦 Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -189,13 +259,13 @@
 		8FF0F6DE1B0E533D0001EEE7 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastSwiftUpdateCheck = 0720;
+				LastSwiftUpdateCheck = 0730;
 				LastUpgradeCheck = 0720;
 				ORGANIZATIONNAME = "Etienne Denis";
 				TargetAttributes = {
 					8FF0F6E51B0E533D0001EEE7 = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = 2RGUL5C6QJ;
+						DevelopmentTeam = QPV37Z38WU;
 					};
 					8FF0F6FC1B0E533D0001EEE7 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -227,15 +297,23 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8FD1B06B1CEB8D470016E0AD /* MenuOverlay.xib in Resources */,
 				8F4FF2641CE94B4B00AF3115 /* pop3.wav in Resources */,
+				8FBB946A1CF4218800735BF8 /* share.png in Resources */,
 				8FF0F6F81B0E533D0001EEE7 /* LaunchScreen.xib in Resources */,
 				8F4FF25F1CE633D800AF3115 /* GameoverOverlay.xib in Resources */,
 				8FF0F6F51B0E533D0001EEE7 /* Images.xcassets in Resources */,
 				8F4FF2651CE94B4B00AF3115 /* pop1.wav in Resources */,
 				8F4FF2631CE94B4B00AF3115 /* pop2.wav in Resources */,
+				8FBB945A1CF3BC9B00735BF8 /* MenuOverlay.xib in Resources */,
+				8FBB94661CF419B600735BF8 /* scores.png in Resources */,
+				8FD6806C1CF2C81C00217024 /* GoogleService-Info.plist in Resources */,
+				8FBB94651CF419B600735BF8 /* star.png in Resources */,
+				8FBB94551CF3A27600735BF8 /* PlayButtonSymbol.png in Resources */,
+				8FBB945E1CF3F6EC00735BF8 /* Pause.png in Resources */,
 				8FF0F6EE1B0E533D0001EEE7 /* art.scnassets in Resources */,
+				8FBB945D1CF3F6EC00735BF8 /* home.png in Resources */,
 				8FF0F6F31B0E533D0001EEE7 /* Main.storyboard in Resources */,
+				8FBB94581CF3B6EC00735BF8 /* NoAdsSymbol.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -248,17 +326,112 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		015A6A00D917001A251EBC9A /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Face It/Pods-Face It-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		10550B6764FD27487C03CC49 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		11335C003BEF2EA8201756C8 /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Face It/Pods-Face It-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		1D30CDD98FE67B793CC33D85 /* 📦 Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		417190B86479A31C462C2DB1 /* 📦 Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Face ItTests/Pods-Face ItTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		650508FA5111648BC4A5C36A /* 📦 Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "📦 Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Face ItTests/Pods-Face ItTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8FF0F6E21B0E533D0001EEE7 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				8F6E953F1B5BA5F800B741C9 /* GameOverlay.swift in Sources */,
 				8F3C5E341C586453006EC33A /* MenuViewController.swift in Sources */,
 				8FF0F6F01B0E533D0001EEE7 /* GameViewController.swift in Sources */,
 				8F5E2DB71B1E17B000CE2DB9 /* Primitive.swift in Sources */,
+				8FBB94501CF359D600735BF8 /* RoundedButton.swift in Sources */,
+				8FBB944E1CF33C2C00735BF8 /* PlayOverlay.swift in Sources */,
 				8F4FF2591CE6221A00AF3115 /* GameoverOverlay.swift in Sources */,
 				8FF0F6EC1B0E533D0001EEE7 /* AppDelegate.swift in Sources */,
+				8FBB94621CF4117000735BF8 /* UIViewExtensions.swift in Sources */,
 				8FD1B06A1CEB8D470016E0AD /* MenuOverlay.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -385,38 +558,52 @@
 		};
 		8FF0F7081B0E533D0001EEE7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0CC66CD66BA1A07B77B615E /* Pods-Face It.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Face It/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Egdenis.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.etiennedenis.faceit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Face It/Face It-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
 		8FF0F7091B0E533D0001EEE7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3359E6AA4D1B317E54889DD7 /* Pods-Face It.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				ENABLE_BITCODE = YES;
+				FRAMEWORK_SEARCH_PATHS = "$(inherited)";
 				INFOPLIST_FILE = "Face It/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "Egdenis.$(PRODUCT_NAME:rfc1034identifier)";
+				PRODUCT_BUNDLE_IDENTIFIER = com.etiennedenis.faceit;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Face It/Face It-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 		8FF0F70B1B0E533D0001EEE7 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 5603C28C6F43F98FA8E155D2 /* Pods-Face ItTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (
@@ -437,6 +624,7 @@
 		};
 		8FF0F70C1B0E533D0001EEE7 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 2426009F33ADE946ABF8DF12 /* Pods-Face ItTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				FRAMEWORK_SEARCH_PATHS = (

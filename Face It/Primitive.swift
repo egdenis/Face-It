@@ -13,7 +13,7 @@ class Primitive: SCNScene {
     var box:SCNNode!
     override init() {
         super.init()
-        let boxGeometry = SCNBox(width: 3.5, height: 3.5, length: 3.5, chamferRadius: 0.1)
+        let boxGeometry = SCNBox(width: 3.5, height: 3.5, length: 3.5, chamferRadius: 0.05)
        
         let yellowMaterial = SCNMaterial()
         yellowMaterial.diffuse.contents = UIColor(red: 247/255, green: 194/255, blue: 49/255, alpha: 1.0)
