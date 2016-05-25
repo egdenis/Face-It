@@ -25,7 +25,6 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
     var gameState = "menu"
     var gameoverSubview: GameoverOverlay?
     var menuSubview: MenuOverlay?
-    var playSubview: PlayOverlay?
     var gcEnabled = Bool() // Stores if the user has Game Center enabled
     var gcDefaultLeaderBoard = String()
     var lastUpdateTimeInterval: CFTimeInterval = 0
@@ -118,7 +117,8 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
                 
             }
             
- 
+            print(colorOrder)
+
           
             
             for (var i = self.spheres.endIndex-1 ; i>=0; i = i-1 ){
@@ -219,22 +219,30 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
             self.gameoverSubview!.buttons[1] = false
         }
         else if(self.gameoverSubview!.buttons[2]){
+            
             let box = self.scn.rootNode.childNodeWithName("box", recursively: true)
             dispatch_async(dispatch_get_main_queue(), {
+                box?.removeActionForKey("rotate")
+                
                 box?.runAction(SCNAction.rotateToX(0, y: 0, z: 0, duration: 0.5, shortestUnitArc: true))
                 self.gameoverSubview?.play()
-            })
-            box?.removeActionForKey("rotate")
 
+                
+            })
+            
+            self.instantiateGameVars()
+            self.gameState = "play"
             self.gameoverSubview!.buttons[2] = false
+
+            
+            print("2")
+            self.menuSubview!.buttons[2] = false
             print("STARTING COLOR ORDER 1 ")
 
             print(self.colorOrder)
-            self.instantiateGameVars()
             print("STARTING COLOR ORDER 22")
             
             print(self.colorOrder)
-            self.gameState = "play"
             print("STARTING COLOR ORDER 3")
             
             print(self.colorOrder)
@@ -268,10 +276,10 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
 
             }
             else if(self.menuSubview!.buttons[2]){
-                self.gameState = "play"
                 let box = self.scn.rootNode.childNodeWithName("box", recursively: true)
-                box?.removeActionForKey("rotate")
                 dispatch_async(dispatch_get_main_queue(), {
+                    box?.removeActionForKey("rotate")
+
                     box?.runAction(SCNAction.rotateToX(0, y: 0, z: 0, duration: 0.5, shortestUnitArc: true))
                     
                     self.view.subviews[0].removeFromSuperview()
@@ -279,10 +287,12 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
                     
                     self.scnView.addSubview(self.gameoverSubview!)
                     self.gameoverSubview?.play()
-                    self.gameState = "play"
 
                 })
+
                 self.instantiateGameVars()
+                self.gameState = "play"
+
                 print("2")
                 self.menuSubview!.buttons[2] = false
             }
@@ -321,7 +331,7 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
     }
     
     func rotateCube(){
-        /*let box = self.scn.rootNode.childNodeWithName("box", recursively: true)
+        let box = self.scn.rootNode.childNodeWithName("box", recursively: true)
         if(self.colorOrder[0] == "blue"){
             box?.runAction(SCNAction.repeatActionForever(SCNAction.rotateByX(0.0, y: 0.5, z: 0.0, duration: 1)), forKey: "rotate")
         }
@@ -332,7 +342,7 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
         else if (self.colorOrder[0] == "yellow") {
             box?.runAction(SCNAction.repeatActionForever(SCNAction.rotateByX(0, y: 0.5, z: 0.0, duration: 1)), forKey: "rotate")
             
-        }*/
+        }
     }
     
     func setUpGameMenu(){
