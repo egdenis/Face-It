@@ -189,7 +189,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "353"
             endingLineNumber = "353"
-            landmarkName = "createThreeSpheres()"
+            landmarkName = "checkMenuButtons()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

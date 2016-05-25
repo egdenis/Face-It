@@ -119,7 +119,11 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
             }
             
 <<<<<<< HEAD
+<<<<<<< HEAD
             self.checkCollisions()
+=======
+ 
+>>>>>>> parent of 75c119c... fixed gameover bug and highscore display
 =======
  
 >>>>>>> parent of 75c119c... fixed gameover bug and highscore display
