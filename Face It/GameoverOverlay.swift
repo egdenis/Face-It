@@ -15,7 +15,7 @@ import GoogleMobileAds
     
     var view: UIView!
     let nibName = "GameoverOverlay"
-    var buttons = [false,false,false,false,false] //possible button from left to right
+    var buttons = [false,false,false,false,false,false,false] //possible button from left to right
     
     @IBOutlet weak var bannerView: GADBannerView!
     @IBOutlet weak var highscoreLabel: UILabel!
@@ -31,9 +31,7 @@ import GoogleMobileAds
     @IBOutlet weak var playImage: UIImageView!
     @IBOutlet weak var scoreText: UILabel!
     @IBOutlet weak var playScore: UILabel!
-    @IBOutlet weak var pauseButton: UIButton!
-    @IBAction func pauseButton(sender: AnyObject) {
-    }
+    
     @IBAction func ads(sender: AnyObject) {
         self.buttons[1] = true
         print("ads gameove")
@@ -50,7 +48,7 @@ import GoogleMobileAds
         self.buttons[3] = true
         print("gmaeover share")
     }
-    
+  
     func updateScore(score: Int){
         print("score:")
         print(score)
@@ -64,33 +62,32 @@ import GoogleMobileAds
     
     func play(){
         self.playScore.text = "0"
-        self.pauseButton.fadeIn()
         self.playScore.fadeIn()
-        self.scoreLabel.hidden = true
-        self.highscoreLabel.hidden = true
-        self.bestText.hidden = true
-        self.scoreText.hidden = true
+        self.scoreLabel.fadeOut()
+        self.highscoreLabel.fadeOut()
+        self.bestText.fadeOut()
+        self.scoreText.fadeOut()
         self.shareImage.hidden = true
-        self.shareButton.hidden = true
-        self.playButton.hidden = true
+        self.shareButton.fadeOut()
+        self.playButton.fadeOut()
         self.playImage.hidden = true
-        self.adsButton.hidden = true
+        
+        self.adsButton.fadeOut()
         self.adsImage.hidden = true
     }
 
     func gameover(){
-        
-        self.pauseButton.fadeOut()
+
         self.playScore.fadeOut()
-        self.scoreLabel.hidden = false
-        self.highscoreLabel.hidden = false
-        self.bestText.hidden = false
-        self.scoreText.hidden = false
+        self.scoreLabel.fadeIn()
+        self.highscoreLabel.fadeIn()
+        self.bestText.fadeIn()
+        self.scoreText.fadeIn()
         self.shareImage.hidden = false
-        self.shareButton.hidden = false
-        self.playButton.hidden = false
+        self.shareButton.fadeIn()
+        self.playButton.fadeIn()
         self.playImage.hidden = false
-        self.adsButton.hidden = false
+        self.adsButton.fadeIn()
         self.adsImage.hidden = false
         self.highscoreLabel.text = (NSUserDefaults().stringForKey("highscore"))
     }

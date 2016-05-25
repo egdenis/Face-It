@@ -15,7 +15,6 @@
                 <outlet property="bannerView" destination="YNc-pN-Trg" id="iLn-ap-ded"/>
                 <outlet property="bestText" destination="EB3-RT-mQI" id="0g9-7q-R5o"/>
                 <outlet property="highscoreLabel" destination="UyJ-Fp-tON" id="0Jz-vm-guQ"/>
-                <outlet property="pauseButton" destination="L6p-pG-0ee" id="OX2-QC-q9p"/>
                 <outlet property="playButton" destination="tpP-bx-2fd" id="IXB-Rs-Z2D"/>
                 <outlet property="playImage" destination="5jo-Tz-yXm" id="OLO-he-Pac"/>
                 <outlet property="playScore" destination="xPp-M5-LpX" id="xDL-OY-wrv"/>
@@ -165,7 +164,7 @@
                     <rect key="frame" x="272" y="414" width="66" height="72"/>
                 </imageView>
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="share.png" translatesAutoresizingMaskIntoConstraints="NO" id="bP6-UB-GOx">
-                    <rect key="frame" x="402.5" y="420.5" width="59" height="59"/>
+                    <rect key="frame" x="402" y="420" width="59" height="59"/>
                     <constraints>
                         <constraint firstAttribute="height" id="2EL-EN-amF"/>
                         <constraint firstAttribute="width" secondItem="bP6-UB-GOx" secondAttribute="height" multiplier="1:1" id="gI2-ky-MlI"/>
@@ -179,8 +178,8 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NoAdsSymbol.png" translatesAutoresizingMaskIntoConstraints="NO" id="Fq3-oE-iCk">
                     <rect key="frame" x="139" y="421" width="59" height="59"/>
                 </imageView>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xPp-M5-LpX">
-                    <rect key="frame" x="528" y="16" width="42" height="75.5"/>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xPp-M5-LpX">
+                    <rect key="frame" x="529" y="16" width="40.5" height="86"/>
                     <attributedString key="attributedText">
                         <fragment content="0">
                             <attributes>
@@ -192,24 +191,6 @@
                     </attributedString>
                     <nil key="highlightedColor"/>
                 </label>
-                <button opaque="NO" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="L6p-pG-0ee">
-                    <rect key="frame" x="30" y="26" width="60" height="66"/>
-                    <constraints>
-                        <constraint firstAttribute="width" constant="60" id="28O-Wd-qzF"/>
-                        <constraint firstAttribute="width" secondItem="L6p-pG-0ee" secondAttribute="height" multiplier="10:11" id="hty-4Z-qcS"/>
-                        <constraint firstAttribute="width" secondItem="L6p-pG-0ee" secondAttribute="height" multiplier="59:64" id="zBe-B2-ubK"/>
-                    </constraints>
-                    <state key="normal" backgroundImage="Pause.png"/>
-                    <variation key="default">
-                        <mask key="constraints">
-                            <exclude reference="28O-Wd-qzF"/>
-                            <exclude reference="zBe-B2-ubK"/>
-                        </mask>
-                    </variation>
-                    <connections>
-                        <action selector="pauseButton:" destination="-1" eventType="touchUpInside" id="5pT-RF-EcF"/>
-                    </connections>
-                </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YNc-pN-Trg" customClass="GADBannerView">
                     <rect key="frame" x="0.0" y="549" width="600" height="50"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -236,7 +217,6 @@
                 <constraint firstItem="Fq3-oE-iCk" firstAttribute="centerY" secondItem="vQa-58-GEr" secondAttribute="centerY" id="BA2-Y9-ZG7"/>
                 <constraint firstItem="0AB-HF-Q7Q" firstAttribute="leading" secondItem="gJB-JD-7Ae" secondAttribute="trailing" id="C05-38-2Mv"/>
                 <constraint firstItem="tpP-bx-2fd" firstAttribute="bottom" secondItem="iN0-l3-epB" secondAttribute="bottom" multiplier="85%" id="FtF-fy-ZjU"/>
-                <constraint firstItem="L6p-pG-0ee" firstAttribute="centerY" secondItem="xPp-M5-LpX" secondAttribute="centerY" id="Hnb-Nj-yCB"/>
                 <constraint firstItem="hFB-lR-1Tc" firstAttribute="centerY" secondItem="EB3-RT-mQI" secondAttribute="centerY" id="Iy7-jg-ZDb"/>
                 <constraint firstItem="Dqt-7a-49t" firstAttribute="width" secondItem="UyJ-Fp-tON" secondAttribute="width" id="JsF-KJ-TxK"/>
                 <constraint firstItem="UyJ-Fp-tON" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="30%" id="KeZ-8b-i6s"/>
@@ -248,11 +228,9 @@
                 <constraint firstItem="vQa-58-GEr" firstAttribute="width" secondItem="tpP-bx-2fd" secondAttribute="width" multiplier="70%" id="R8j-ox-rBw"/>
                 <constraint firstItem="UyJ-Fp-tON" firstAttribute="leading" secondItem="wla-vP-0hh" secondAttribute="trailing" id="RXH-YF-Kac"/>
                 <constraint firstItem="bP6-UB-GOx" firstAttribute="height" secondItem="0AB-HF-Q7Q" secondAttribute="height" multiplier="50%" id="RyH-9e-bOc"/>
-                <constraint firstItem="L6p-pG-0ee" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="10%" id="SNz-h0-XQZ"/>
                 <constraint firstItem="YNc-pN-Trg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="Udu-4V-cxd"/>
                 <constraint firstItem="xPp-M5-LpX" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" multiplier="95%" id="Wak-fZ-rtA"/>
                 <constraint firstItem="6zn-Kc-J1A" firstAttribute="width" secondItem="tpP-bx-2fd" secondAttribute="width" multiplier="25%" id="XRG-MH-ogS"/>
-                <constraint firstItem="L6p-pG-0ee" firstAttribute="trailing" secondItem="iN0-l3-epB" secondAttribute="trailing" multiplier="15%" id="Z9Y-S8-uJC"/>
                 <constraint firstItem="gJB-JD-7Ae" firstAttribute="centerY" secondItem="tpP-bx-2fd" secondAttribute="centerY" id="b5c-Vs-5kr"/>
                 <constraint firstItem="Fq3-oE-iCk" firstAttribute="height" secondItem="vQa-58-GEr" secondAttribute="height" multiplier="70%" id="bC7-nQ-iGS"/>
                 <constraint firstItem="gJB-JD-7Ae" firstAttribute="leading" secondItem="tpP-bx-2fd" secondAttribute="trailing" id="cck-Yr-42Z"/>
@@ -267,11 +245,10 @@
                 <constraint firstItem="hFB-lR-1Tc" firstAttribute="centerX" secondItem="Dqt-7a-49t" secondAttribute="centerX" id="klP-T2-Hzt"/>
                 <constraint firstAttribute="bottom" secondItem="YNc-pN-Trg" secondAttribute="bottom" constant="1" id="l2B-SB-ceQ"/>
                 <constraint firstItem="tpP-bx-2fd" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="m4I-f7-gii"/>
-                <constraint firstItem="xPp-M5-LpX" firstAttribute="centerY" secondItem="L6p-pG-0ee" secondAttribute="centerY" id="neC-ZA-eTg"/>
                 <constraint firstItem="9j6-zc-xu6" firstAttribute="centerY" secondItem="tpP-bx-2fd" secondAttribute="centerY" id="pM1-wu-cbk"/>
                 <constraint firstItem="wla-vP-0hh" firstAttribute="centerY" secondItem="UyJ-Fp-tON" secondAttribute="centerY" id="pQb-gt-qeC"/>
                 <constraint firstItem="0AB-HF-Q7Q" firstAttribute="width" secondItem="tpP-bx-2fd" secondAttribute="width" multiplier="25%" id="q3f-i8-ppn"/>
-                <constraint firstItem="L6p-pG-0ee" firstAttribute="width" secondItem="L6p-pG-0ee" secondAttribute="height" multiplier="59:64" id="sAY-0D-f5L"/>
+                <constraint firstItem="YNc-pN-Trg" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="sCc-uh-2SW"/>
                 <constraint firstItem="tpP-bx-2fd" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" multiplier="20%" id="t8r-iT-xZk"/>
                 <constraint firstItem="5jo-Tz-yXm" firstAttribute="centerX" secondItem="tpP-bx-2fd" secondAttribute="centerX" constant="5" id="uNG-2n-Kl1"/>
                 <constraint firstItem="5jo-Tz-yXm" firstAttribute="width" secondItem="tpP-bx-2fd" secondAttribute="width" multiplier="55%" id="vO2-fG-8Y9"/>
@@ -282,8 +259,6 @@
             </constraints>
             <variation key="default">
                 <mask key="constraints">
-                    <exclude reference="Hnb-Nj-yCB"/>
-                    <exclude reference="sAY-0D-f5L"/>
                     <exclude reference="NSU-UO-m9W"/>
                     <exclude reference="6tR-dk-iF5"/>
                     <exclude reference="cwr-kI-2wl"/>
@@ -296,7 +271,6 @@
     </objects>
     <resources>
         <image name="NoAdsSymbol.png" width="1225" height="434"/>
-        <image name="Pause.png" width="300" height="340"/>
         <image name="PlayButtonSymbol.png" width="827" height="911"/>
         <image name="share.png" width="1127" height="1210"/>
     </resources>

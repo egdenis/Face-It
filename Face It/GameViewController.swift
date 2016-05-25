@@ -95,9 +95,9 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
     }
     
      func renderer(renderer: SCNSceneRenderer, updateAtTime time: NSTimeInterval) {
+     
         
         if self.gameState == "play" { //is the gameover?? if not process game loop
-            var isGameover = false
             self.delta  = self.delta + time - lastUpdateTimeInterval
             
             lastUpdateTimeInterval = time
@@ -117,89 +117,11 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
                 
             }
             
-            print(colorOrder)
-
+            self.checkCollisions()
           
             
-            for (var i = self.spheres.endIndex-1 ; i>=0; i = i-1 ){
-                let position = self.spheres[i].position
-
-                if(position.x != 0 && position.x<1.3 && self.counted[i] == 0){
-
-                    if(self.colorOrder[1]==self.spheres[i].name!){
-                        self.score += 1
-                        self.counted[i] = 1
-                        self.sounds[self.spheres[i].name!]?.play()
-                        self.spheres[i].geometry = nil
-                        self.counted.removeAtIndex(i)
-                        self.spheres.removeAtIndex(i)
-                        self.gameoverSubview?.updateScore(self.score)
-
-                    }
-                    else{
-                        print(colorOrder)
-                        print(self.spheres[i].name)
-                        isGameover = true
-                        print(self.colorOrder[1])
-
-                        print("1")
-
-                    }
-                }
-                else if(position.y != 0 && position.y<1.3 && self.counted[i] == 0){
-                    
-                    if(self.colorOrder[0]==self.spheres[i].name!){
-                        self.score += 1
-                        self.counted[i] = 1
-                        self.sounds[self.spheres[i].name!]?.play()
-                        self.spheres[i].geometry = nil
-                        self.counted.removeAtIndex(i)
-                        self.spheres.removeAtIndex(i)
-                        self.gameoverSubview?.updateScore(self.score)
-
-                    }
-                    else{
-                        print(colorOrder)
-                        print(self.spheres[i].name)
-                        isGameover = true
-                        print(self.colorOrder[0])
-
-                        print("0")
-
-                    }
-                }
-                else if(position.z != 0 && position.z<1.3 && self.counted[i] == 0){
-                    
-
-                    if(self.colorOrder[2]==self.spheres[i].name!){
-                        self.score += 1
-                        self.counted[i] = 1
-                        self.sounds[self.spheres[i].name!]?.play()
-                        self.spheres[i].geometry = nil
-                        self.counted.removeAtIndex(i)
-                        self.spheres.removeAtIndex(i)
-                        self.gameoverSubview?.updateScore(self.score)
-                    }
-                    else{
-                        print(colorOrder)
-                        print(self.spheres[i].name)
-                        print(self.colorOrder[2])
-                        print("2")
-
-                        isGameover = true
-                    }
-                }
-                
-                
-            }
-            
-            
-            
-            
-            if isGameover {
-                gameOver()
-            }
         }
+            
         else if self.gameState == "gameover"  && self.gameoverSubview != nil {
             checkGameoverButtons()
         }
@@ -208,60 +130,135 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
         }
     }
     
+    func checkCollisions(){
+        var isGameover = false
 
-    
-    func checkGameoverButtons(){
-        if(self.gameoverSubview!.buttons[0]){
-            self.gameoverSubview!.buttons[0] = false
+        for (var i = self.spheres.endIndex-1 ; i>=0; i = i-1 ){
+            let position = self.spheres[i].position
             
-        }
-        else if(self.gameoverSubview!.buttons[1]){
-            self.gameoverSubview!.buttons[1] = false
-        }
-        else if(self.gameoverSubview!.buttons[2]){
-            
-            let box = self.scn.rootNode.childNodeWithName("box", recursively: true)
-            dispatch_async(dispatch_get_main_queue(), {
-                box?.removeActionForKey("rotate")
+            if(position.x != 0 && position.x<1.3 && self.counted[i] == 0){
                 
-                box?.runAction(SCNAction.rotateToX(0, y: 0, z: 0, duration: 0.5, shortestUnitArc: true))
-                self.gameoverSubview?.play()
-
+                if(self.colorOrder[1]==self.spheres[i].name!){
+                    self.score += 1
+                    self.counted[i] = 1
+                    self.sounds[self.spheres[i].name!]?.play()
+                    self.spheres[i].geometry = nil
+                    self.counted.removeAtIndex(i)
+                    self.spheres.removeAtIndex(i)
+                    self.gameoverSubview?.updateScore(self.score)
+                    
+                }
+                else{
+                    
+                    isGameover = true
+                    
+                }
+            }
+            else if(position.y != 0 && position.y<1.3 && self.counted[i] == 0){
                 
-            })
-            
-            self.instantiateGameVars()
-            self.gameState = "play"
-            self.gameoverSubview!.buttons[2] = false
-
-            
-            print("2")
-            self.menuSubview!.buttons[2] = false
-            print("STARTING COLOR ORDER 1 ")
-
-            print(self.colorOrder)
-            print("STARTING COLOR ORDER 22")
-            
-            print(self.colorOrder)
-            print("STARTING COLOR ORDER 3")
-            
-            print(self.colorOrder)
-        }
-        else if(self.gameoverSubview!.buttons[3]){
-            self.gameoverSubview!.buttons[3] = false
-            print("shar")
-            dispatch_async(dispatch_get_main_queue(), {
+                if(self.colorOrder[0]==self.spheres[i].name!){
+                    self.score += 1
+                    self.counted[i] = 1
+                    self.sounds[self.spheres[i].name!]?.play()
+                    self.spheres[i].geometry = nil
+                    self.counted.removeAtIndex(i)
+                    self.spheres.removeAtIndex(i)
+                    self.gameoverSubview?.updateScore(self.score)
+                    
+                }
+                else{
+                    
+                    isGameover = true
+                    
+                    
+                }
+            }
+            else if(position.z != 0 && position.z<1.3 && self.counted[i] == 0){
                 
-                self.share()
-            })
+                
+                if(self.colorOrder[2]==self.spheres[i].name!){
+                    self.score += 1
+                    self.counted[i] = 1
+                    self.sounds[self.spheres[i].name!]?.play()
+                    self.spheres[i].geometry = nil
+                    self.counted.removeAtIndex(i)
+                    self.spheres.removeAtIndex(i)
+                    self.gameoverSubview?.updateScore(self.score)
+                }
+                else{
+                    
+                    isGameover = true
+                }
+            }
+            
+            
         }
-        else if(self.gameoverSubview!.buttons[4]){
-            
-            
-            
+        
+        
+        
+        
+        if isGameover {
+            gameOver()
         }
 
     }
+    
+    func checkGameoverButtons(){
+       
+            if(self.gameoverSubview!.buttons[0]){
+                self.gameoverSubview!.buttons[0] = false
+                
+            }
+            else if(self.gameoverSubview!.buttons[1]){
+                self.gameoverSubview!.buttons[1] = false
+            }
+            else if(self.gameoverSubview!.buttons[2]){
+                
+                let box = self.scn.rootNode.childNodeWithName("box", recursively: true)
+                dispatch_async(dispatch_get_main_queue(), {
+                    box?.removeActionForKey("rotate")
+                    
+                    box?.runAction(SCNAction.rotateToX(0, y: 0, z: 0, duration: 0.5, shortestUnitArc: true))
+                    self.gameoverSubview?.play()
+
+                    
+                })
+                
+                self.instantiateGameVars()
+                self.gameState = "play"
+                self.gameoverSubview!.buttons[2] = false
+
+                
+                print("2")
+                self.menuSubview!.buttons[2] = false
+                print("STARTING COLOR ORDER 1 ")
+
+                print(self.colorOrder)
+                print("STARTING COLOR ORDER 22")
+                
+                print(self.colorOrder)
+                print("STARTING COLOR ORDER 3")
+                
+                print(self.colorOrder)
+            }
+            else if(self.gameoverSubview!.buttons[3]){
+                self.gameoverSubview!.buttons[3] = false
+                print("shar")
+                dispatch_async(dispatch_get_main_queue(), {
+                    
+                    self.share()
+                })
+            }
+            else if(self.gameoverSubview!.buttons[4]){
+                
+                
+                
+            }
+    
+
+        
+    }
+    
     
     func checkMenuButtons(){
         
@@ -286,6 +283,7 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
                     self.gameoverSubview = GameoverOverlay(frame: CGRect(x: 0, y: 0, width: self.scnView.bounds.width, height: self.scnView.bounds.height), score: self.score, rootViewController: self ) //instatiate ui
                     
                     self.scnView.addSubview(self.gameoverSubview!)
+                   
                     self.gameoverSubview?.play()
 
                 })
@@ -508,10 +506,29 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
         return audioPlayer
     }
     
-    func handleTap(gestureRecognize: UIGestureRecognizer) {
-      
-    }
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
     
+        
+        var touch: Set<UITouch> = touches
+        var location = touch.first?.locationInView(self.gameoverSubview)
+        
+        
+      /* if(location.name == "retry") {
+            var backToMainScene = GameScene(size: self.size)
+            var transitionToMainScene = SKTransition.fadeWithDuration(1.0)
+            backToMainScene.scaleMode = SKSceneScaleMode.AspectFill
+            self.scene!.view?.presentScene(backToMainScene, transition: transitionToMainScene)
+        }
+        
+        var touchLocation = touch.locationInNode(self)
+        
+        if(node.name == "taptostart") {
+            tapToStartButton.hidden = true
+            view?.scene?.paused = false
+            
+        */
+        }
+        
     func handleSwipes(sender:UISwipeGestureRecognizer) {
         
         let location = sender.locationOfTouch(0, inView: self.scnView)
