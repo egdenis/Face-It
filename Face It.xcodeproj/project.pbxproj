@@ -8,12 +8,14 @@
 
 /* Begin PBXBuildFile section */
 		588B99210DB3A17E7607C82D /* Pods_Face_ItTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0F7427A040975A08E6C99D16 /* Pods_Face_ItTests.framework */; };
+		8F3C5E341C586453006EC33A /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F3C5E331C586453006EC33A /* MenuViewController.swift */; };
 		8F4FF2591CE6221A00AF3115 /* GameoverOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F4FF2581CE6221A00AF3115 /* GameoverOverlay.swift */; };
 		8F4FF25F1CE633D800AF3115 /* GameoverOverlay.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8F4FF25E1CE633D800AF3115 /* GameoverOverlay.xib */; };
 		8F4FF2631CE94B4B00AF3115 /* pop2.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8F4FF2601CE94B4B00AF3115 /* pop2.wav */; };
 		8F4FF2641CE94B4B00AF3115 /* pop3.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8F4FF2611CE94B4B00AF3115 /* pop3.wav */; };
 		8F4FF2651CE94B4B00AF3115 /* pop1.wav in Resources */ = {isa = PBXBuildFile; fileRef = 8F4FF2621CE94B4B00AF3115 /* pop1.wav */; };
 		8F5E2DB71B1E17B000CE2DB9 /* Primitive.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8F5E2DB61B1E17B000CE2DB9 /* Primitive.swift */; };
+		8FBB944E1CF33C2C00735BF8 /* PlayOverlay.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBB944D1CF33C2C00735BF8 /* PlayOverlay.swift */; };
 		8FBB94501CF359D600735BF8 /* RoundedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8FBB944F1CF359D600735BF8 /* RoundedButton.swift */; };
 		8FBB94551CF3A27600735BF8 /* PlayButtonSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FBB94521CF3A27600735BF8 /* PlayButtonSymbol.png */; };
 		8FBB94581CF3B6EC00735BF8 /* NoAdsSymbol.png in Resources */ = {isa = PBXBuildFile; fileRef = 8FBB94571CF3B6EC00735BF8 /* NoAdsSymbol.png */; };
@@ -51,6 +53,7 @@
 		2426009F33ADE946ABF8DF12 /* Pods-Face ItTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Face ItTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Face ItTests/Pods-Face ItTests.release.xcconfig"; sourceTree = "<group>"; };
 		3359E6AA4D1B317E54889DD7 /* Pods-Face It.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Face It.release.xcconfig"; path = "Pods/Target Support Files/Pods-Face It/Pods-Face It.release.xcconfig"; sourceTree = "<group>"; };
 		5603C28C6F43F98FA8E155D2 /* Pods-Face ItTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Face ItTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Face ItTests/Pods-Face ItTests.debug.xcconfig"; sourceTree = "<group>"; };
+		8F3C5E331C586453006EC33A /* MenuViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		8F4FF2581CE6221A00AF3115 /* GameoverOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameoverOverlay.swift; sourceTree = "<group>"; };
 		8F4FF25E1CE633D800AF3115 /* GameoverOverlay.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = GameoverOverlay.xib; path = ../GameoverOverlay.xib; sourceTree = "<group>"; };
 		8F4FF2601CE94B4B00AF3115 /* pop2.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pop2.wav; sourceTree = "<group>"; };
@@ -58,6 +61,7 @@
 		8F4FF2621CE94B4B00AF3115 /* pop1.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = pop1.wav; sourceTree = "<group>"; };
 		8F5E2DB61B1E17B000CE2DB9 /* Primitive.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Primitive.swift; sourceTree = "<group>"; };
 		8FBB94481CF2CEE100735BF8 /* Face It-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Face It-Bridging-Header.h"; sourceTree = "<group>"; };
+		8FBB944D1CF33C2C00735BF8 /* PlayOverlay.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlayOverlay.swift; sourceTree = "<group>"; };
 		8FBB944F1CF359D600735BF8 /* RoundedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoundedButton.swift; sourceTree = "<group>"; };
 		8FBB94521CF3A27600735BF8 /* PlayButtonSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = PlayButtonSymbol.png; sourceTree = "<group>"; };
 		8FBB94571CF3B6EC00735BF8 /* NoAdsSymbol.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = NoAdsSymbol.png; sourceTree = "<group>"; };
@@ -138,11 +142,13 @@
 			isa = PBXGroup;
 			children = (
 				8FF0F6EF1B0E533D0001EEE7 /* GameViewController.swift */,
-				8F4FF2581CE6221A00AF3115 /* GameoverOverlay.swift */,
+				8FBB944D1CF33C2C00735BF8 /* PlayOverlay.swift */,
 				8FD1B0681CEB8D470016E0AD /* MenuOverlay.swift */,
 				8FD6806B1CF2C81C00217024 /* GoogleService-Info.plist */,
+				8F4FF2581CE6221A00AF3115 /* GameoverOverlay.swift */,
 				8FBB944F1CF359D600735BF8 /* RoundedButton.swift */,
 				8F5E2DB61B1E17B000CE2DB9 /* Primitive.swift */,
+				8F3C5E331C586453006EC33A /* MenuViewController.swift */,
 				8FF0F6EB1B0E533D0001EEE7 /* AppDelegate.swift */,
 				8FBB94611CF4117000735BF8 /* UIViewExtensions.swift */,
 				8FBB945B1CF3F6EC00735BF8 /* home.png */,
@@ -418,9 +424,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8F3C5E341C586453006EC33A /* MenuViewController.swift in Sources */,
 				8FF0F6F01B0E533D0001EEE7 /* GameViewController.swift in Sources */,
 				8F5E2DB71B1E17B000CE2DB9 /* Primitive.swift in Sources */,
 				8FBB94501CF359D600735BF8 /* RoundedButton.swift in Sources */,
+				8FBB944E1CF33C2C00735BF8 /* PlayOverlay.swift in Sources */,
 				8F4FF2591CE6221A00AF3115 /* GameoverOverlay.swift in Sources */,
 				8FF0F6EC1B0E533D0001EEE7 /* AppDelegate.swift in Sources */,
 				8FBB94621CF4117000735BF8 /* UIViewExtensions.swift in Sources */,

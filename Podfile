@@ -4,6 +4,8 @@
 target 'Face It' do
   use_frameworks!
 	
+  pod 'Firebase'
+  pod 'Firebase/Core'
   pod 'Firebase/AdMob'
   target 'Face ItTests' do
     inherit! :search_paths

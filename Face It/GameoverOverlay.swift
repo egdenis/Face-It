@@ -89,7 +89,6 @@ import GoogleMobileAds
         self.playImage.hidden = false
         self.adsButton.fadeIn()
         self.adsImage.hidden = false
-        self.highscoreLabel.text = (NSUserDefaults().stringForKey("highscore"))
     }
     init(frame: CGRect, score: Int, rootViewController: UIViewController) { // programmer creates our custom View
         super.init(frame: frame)
