@@ -27,6 +27,8 @@ import Social
     }
     @IBAction func play(sender: AnyObject) {
         buttons[2] = true
+        print("asdf")
+
     }
     
   

@@ -259,10 +259,13 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
         
             if(self.menuSubview!.buttons[0]){
                 self.menuSubview!.buttons[0] = false
-                
+                print("1")
+
             }
             else if(self.menuSubview!.buttons[1]){
                 self.menuSubview!.buttons[1] = false
+                print("2")
+
             }
             else if(self.menuSubview!.buttons[2]){
                 self.gameState = "play"
@@ -280,13 +283,15 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
 
                 })
                 self.instantiateGameVars()
-
+                print("2")
                 self.menuSubview!.buttons[2] = false
             }
             else if(self.menuSubview!.buttons[3]){
-                
+                print("3")
+
             }
             else if(self.menuSubview!.buttons[4]){
+                print("4")
 
                 self.menuSubview!.buttons[4] = false
                 print("shar")
@@ -316,7 +321,7 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
     }
     
     func rotateCube(){
-        let box = self.scn.rootNode.childNodeWithName("box", recursively: true)
+        /*let box = self.scn.rootNode.childNodeWithName("box", recursively: true)
         if(self.colorOrder[0] == "blue"){
             box?.runAction(SCNAction.repeatActionForever(SCNAction.rotateByX(0.0, y: 0.5, z: 0.0, duration: 1)), forKey: "rotate")
         }
@@ -327,7 +332,7 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
         else if (self.colorOrder[0] == "yellow") {
             box?.runAction(SCNAction.repeatActionForever(SCNAction.rotateByX(0, y: 0.5, z: 0.0, duration: 1)), forKey: "rotate")
             
-        }
+        }*/
     }
     
     func setUpGameMenu(){
