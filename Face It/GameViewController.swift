@@ -16,6 +16,8 @@ import GameKit
 
 class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysicsContactDelegate, SCNSceneRendererDelegate {
     var scnView: SCNView!
+    var products = [SKProduct]()
+
     var scn: Primitive!
     var spheres:Array<SCNNode> = []
     var counted:Array<Int> = []
@@ -30,8 +32,8 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
     var gcDefaultLeaderBoard = String()
     var lastUpdateTimeInterval: CFTimeInterval = 0
     var delta: CFTimeInterval = 0
+ 
     var sounds: [String:AVAudioPlayer] = [:]
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -61,6 +63,8 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
         view.addGestureRecognizer(upSwipe)
         view.addGestureRecognizer(downSwipe)
         
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: #selector(GameViewController.handlePurchaseNotification(_:)), name: IAPHelper.IAPHelperPurchaseNotification, object: nil)
+        
         if let pop = self.setupAudioPlayerWithFile("pop1", type:"wav") { //sounds
             self.sounds["red"] = pop
         }
@@ -81,13 +85,92 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
         }
         userDefaults.synchronize()
         
-        //self.authenticateLocalPlayer()
+        self.authenticateLocalPlayer()
 
         setUpGameMenu()
         print("game loaded")
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        reload()
+    }
+    
+    func reload() {
+        products = []
+        gameProducts.store.requestProducts{success, products in
+            if success {
+                self.products = products!
+                
+            }
+        }
+    }
+  
+    func buyButtonTapped(sender: AnyObject) {
+        buyButtonHandler?(product: product!)
+    }
+    var buyButtonHandler: ((product: SKProduct) -> ())?
+    
+    var product: SKProduct? {
+        didSet {
+            guard let product = product else { return }
+            
+            
+            if gameProducts.store.isProductPurchased(product.productIdentifier) {
+                
+            } else {
+                ProductCell.priceFormatter.locale = product.priceLocale
+                detailTextLabel?.text = ProductCell.priceFormatter.stringFromNumber(product.price)
+                
+                accessoryType = .None
+                accessoryView = newBuyButton()
+            }
+        }
+    }
 
+    func handlePurchaseNotification(notification: NSNotification) {
+        guard let productID = notification.object as? String else { return }
+        
+        for (index, product) in products.enumerate() {
+            guard product.productIdentifier == productID else { continue }
+            
+            //tableView.reloadRowsAtIndexPaths([NSIndexPath(forRow: index, inSection: 0)], withRowAnimation: .Fade)
+        }
+    }
+    
+
+    func authenticateLocalPlayer() {
+        let localPlayer: GKLocalPlayer = GKLocalPlayer.localPlayer()
+        
+        localPlayer.authenticateHandler = {(ViewController, error) -> Void in
+            if((ViewController) != nil) {
+                // 1 Show login if player is not logged in
+                self.presentViewController(ViewController!, animated: true, completion: nil)
+            } else if (localPlayer.authenticated) {
+                // 2 Player is already euthenticated & logged in, load game center
+                self.gcEnabled = true
+                
+                // Get the default leaderboard ID
+                localPlayer.loadDefaultLeaderboardIdentifierWithCompletionHandler({ (leaderboardIdentifer: String?, error: NSError?) -> Void in
+                    if error != nil {
+                        print(error)
+                    } else {
+                        self.gcDefaultLeaderBoard = leaderboardIdentifer!
+                    }
+                })
+                
+                
+            } else {
+                // 3 Game center is not enabled on the users device
+                self.gcEnabled = false
+                print("Local player could not be authenticated, disabling game center")
+                print(error)
+            }
+            
+        }
+        
+    }
     func instantiateGameVars(){
         self.colorOrder = ["blue","red","yellow"]
         self.maxTime = 1
@@ -221,6 +304,7 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
             }
             else if(self.gameoverSubview!.buttons[1]){
                 self.gameoverSubview!.buttons[1] = false
+                gameProducts.store.buyProduct(self.products[0])
             }
             else if(self.gameoverSubview!.buttons[2]){
                 
@@ -313,6 +397,10 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
             }
             else if(self.menuSubview!.buttons[1]){
                 self.menuSubview!.buttons[1] = false
+                print(self.products)
+                gameProducts.store.buyProduct(self.products[0])
+                
+
                 print("2")
 
             }
@@ -337,20 +425,16 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
                 self.menuSubview!.buttons[2] = false
             }
             else if(self.menuSubview!.buttons[3]){
-                print("3")
-
-            }
-            else if(self.menuSubview!.buttons[4]){
-                print("4")
-
-                self.menuSubview!.buttons[4] = false
+                self.menuSubview!.buttons[3] = false
                 print("shar")
                 dispatch_async(dispatch_get_main_queue(), {
                     
                     self.share()
                 })
+                
 
             }
+        
         }
     
     func createThreeSpheres(){
@@ -452,38 +536,7 @@ class GameViewController: UIViewController,UIGestureRecognizerDelegate,SCNPhysic
         sphere.runAction(SCNAction.moveTo(SCNVector3(x:0,y:0,z:0), duration: NSTimeInterval(3)))
     }
 
-    func authenticateLocalPlayer() {
-        let localPlayer: GKLocalPlayer = GKLocalPlayer.localPlayer()
-        
-        localPlayer.authenticateHandler = {(ViewController, error) -> Void in
-            if((ViewController) != nil) {
-                // 1 Show login if player is not logged in
-                self.presentViewController(ViewController!, animated: true, completion: nil)
-            } else if (localPlayer.authenticated) {
-                // 2 Player is already euthenticated & logged in, load game center
-                self.gcEnabled = true
-                
-                // Get the default leaderboard ID
-                localPlayer.loadDefaultLeaderboardIdentifierWithCompletionHandler({ (leaderboardIdentifer: String?, error: NSError?) -> Void in
-                    if error != nil {
-                        print(error)
-                    } else {
-                        self.gcDefaultLeaderBoard = leaderboardIdentifer!
-                    }
-                })
-                
-                
-            } else {
-                // 3 Game center is not enabled on the users device
-                self.gcEnabled = false
-                print("Local player could not be authenticated, disabling game center")
-                print(error)
-            }
-            
-        }
-        
-    }
-    
+      
     private func showFacebook() {
         if SLComposeViewController.isAvailableForServiceType(SLServiceTypeFacebook) {
             let mySLComposerSheet = SLComposeViewController(forServiceType: SLServiceTypeFacebook)

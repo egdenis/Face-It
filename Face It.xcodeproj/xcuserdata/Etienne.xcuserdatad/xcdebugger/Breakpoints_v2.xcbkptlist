@@ -86,6 +86,7 @@
             filePath = "Face It/GameViewController.swift"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             timestampString = "485841506.483826"
 =======
             timestampString = "485814153.610752"
@@ -93,10 +94,13 @@
 =======
             timestampString = "485814153.610752"
 >>>>>>> parent of 75c119c... fixed gameover bug and highscore display
+=======
+            timestampString = "485847668.957457"
+>>>>>>> origin/master
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "131"
-            endingLineNumber = "131"
+            startingLineNumber = "193"
+            endingLineNumber = "193"
             landmarkName = "renderer(_:updateAtTime:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -108,11 +112,19 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Face It/GameViewController.swift"
+<<<<<<< HEAD
             timestampString = "485805160.760789"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "39"
             endingLineNumber = "39"
+=======
+            timestampString = "485846986.807686"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "40"
+            endingLineNumber = "40"
+>>>>>>> origin/master
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -124,6 +136,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Face It/GameViewController.swift"
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             timestampString = "485842346.756114"
@@ -145,6 +158,13 @@
             startingLineNumber = "380"
             endingLineNumber = "380"
 >>>>>>> parent of 75c119c... fixed gameover bug and highscore display
+=======
+            timestampString = "485847668.957457"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "449"
+            endingLineNumber = "449"
+>>>>>>> origin/master
             landmarkName = "addSphere(_:positionIndex:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -156,6 +176,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Face It/GameViewController.swift"
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             timestampString = "485842346.756114"
@@ -177,6 +198,13 @@
             startingLineNumber = "383"
             endingLineNumber = "383"
 >>>>>>> parent of 75c119c... fixed gameover bug and highscore display
+=======
+            timestampString = "485847668.957457"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "452"
+            endingLineNumber = "452"
+>>>>>>> origin/master
             landmarkName = "addSphere(_:positionIndex:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -188,6 +216,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Face It/GameViewController.swift"
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             timestampString = "485842346.756114"
@@ -209,6 +238,13 @@
             startingLineNumber = "388"
             endingLineNumber = "388"
 >>>>>>> parent of 75c119c... fixed gameover bug and highscore display
+=======
+            timestampString = "485847668.957457"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "457"
+            endingLineNumber = "457"
+>>>>>>> origin/master
             landmarkName = "addSphere(_:positionIndex:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -316,6 +352,7 @@
             filePath = "Face It/GameViewController.swift"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             timestampString = "485842346.756114"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
@@ -333,6 +370,13 @@
 >>>>>>> parent of 75c119c... fixed gameover bug and highscore display
 =======
 >>>>>>> parent of 75c119c... fixed gameover bug and highscore display
+=======
+            timestampString = "485847668.957457"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "461"
+            endingLineNumber = "461"
+>>>>>>> origin/master
             landmarkName = "addSphere(_:positionIndex:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -660,6 +704,7 @@
             filePath = "Face It/GameViewController.swift"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             timestampString = "485841506.483826"
 =======
             timestampString = "485805160.760789"
@@ -671,6 +716,13 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "100"
             endingLineNumber = "100"
+=======
+            timestampString = "485847668.957457"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "161"
+            endingLineNumber = "161"
+>>>>>>> origin/master
             landmarkName = "renderer(_:updateAtTime:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -682,6 +734,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Face It/GameViewController.swift"
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             timestampString = "485841506.483826"
@@ -691,10 +744,13 @@
 =======
             timestampString = "485814153.610752"
 >>>>>>> parent of 75c119c... fixed gameover bug and highscore display
+=======
+            timestampString = "485847668.957457"
+>>>>>>> origin/master
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "125"
-            endingLineNumber = "125"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
             landmarkName = "renderer(_:updateAtTime:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -706,6 +762,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Face It/GameViewController.swift"
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             timestampString = "485842346.756114"
@@ -727,6 +784,13 @@
             startingLineNumber = "349"
             endingLineNumber = "349"
 >>>>>>> parent of 75c119c... fixed gameover bug and highscore display
+=======
+            timestampString = "485847668.957457"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "418"
+            endingLineNumber = "418"
+>>>>>>> origin/master
             landmarkName = "gameOver()"
             landmarkType = "5">
          </BreakpointContent>
@@ -738,6 +802,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Face It/GameViewController.swift"
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             timestampString = "485842346.756114"
@@ -757,6 +822,13 @@
 >>>>>>> parent of 75c119c... fixed gameover bug and highscore display
 =======
 >>>>>>> parent of 75c119c... fixed gameover bug and highscore display
+=======
+            timestampString = "485847668.957457"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "462"
+            endingLineNumber = "462"
+>>>>>>> origin/master
             landmarkName = "addSphere(_:positionIndex:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -768,6 +840,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Face It/GameViewController.swift"
+<<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
             timestampString = "485842346.756114"
@@ -787,6 +860,13 @@
 >>>>>>> parent of 75c119c... fixed gameover bug and highscore display
 =======
 >>>>>>> parent of 75c119c... fixed gameover bug and highscore display
+=======
+            timestampString = "485847668.957457"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "463"
+            endingLineNumber = "463"
+>>>>>>> origin/master
             landmarkName = "addSphere(_:positionIndex:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -798,11 +878,19 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "Face It/GameViewController.swift"
+<<<<<<< HEAD
             timestampString = "485805160.760789"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "49"
             endingLineNumber = "49"
+=======
+            timestampString = "485846986.807686"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "50"
+            endingLineNumber = "50"
+>>>>>>> origin/master
             landmarkName = "viewDidLoad()"
             landmarkType = "5">
          </BreakpointContent>
@@ -816,6 +904,7 @@
             filePath = "Face It/GameViewController.swift"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             timestampString = "485841506.483826"
 =======
             timestampString = "485814153.610752"
@@ -823,10 +912,13 @@
 =======
             timestampString = "485814153.610752"
 >>>>>>> parent of 75c119c... fixed gameover bug and highscore display
+=======
+            timestampString = "485847668.957457"
+>>>>>>> origin/master
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "124"
-            endingLineNumber = "124"
+            startingLineNumber = "186"
+            endingLineNumber = "186"
             landmarkName = "renderer(_:updateAtTime:)"
             landmarkType = "5">
          </BreakpointContent>
@@ -872,6 +964,7 @@
             filePath = "Face It/GameViewController.swift"
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
             timestampString = "485841506.483826"
 =======
             timestampString = "485806812.435512"
@@ -879,10 +972,13 @@
 =======
             timestampString = "485806812.435512"
 >>>>>>> parent of 75c119c... fixed gameover bug and highscore display
+=======
+            timestampString = "485847668.957457"
+>>>>>>> origin/master
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "122"
-            endingLineNumber = "122"
+            startingLineNumber = "184"
+            endingLineNumber = "184"
             landmarkName = "renderer(_:updateAtTime:)"
             landmarkType = "5">
          </BreakpointContent>

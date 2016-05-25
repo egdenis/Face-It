@@ -141,7 +141,11 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "165"
             endingLineNumber = "165"
+<<<<<<< HEAD
             landmarkName = "checkCollisions()"
+=======
+            landmarkName = "renderer(_:updateAtTime:)"
+>>>>>>> origin/master
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -157,8 +161,13 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "321"
             endingLineNumber = "321"
+<<<<<<< HEAD
             landmarkName = "checkMenuButtons()"
             landmarkType = "7">
+=======
+            landmarkName = "checkGameoverButtons()"
+            landmarkType = "5">
+>>>>>>> origin/master
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -173,8 +182,13 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "540"
             endingLineNumber = "540"
+<<<<<<< HEAD
             landmarkName = "setupAudioPlayerWithFile(_:type:)"
             landmarkType = "7">
+=======
+            landmarkName = "GameViewController"
+            landmarkType = "3">
+>>>>>>> origin/master
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -191,6 +205,22 @@
             endingLineNumber = "353"
             landmarkName = "checkMenuButtons()"
             landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Face It/gameProducts.swift"
+            timestampString = "485846093.533891"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "26"
+            endingLineNumber = "26"
+            landmarkName = "gameProducts"
+            landmarkType = "3">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
